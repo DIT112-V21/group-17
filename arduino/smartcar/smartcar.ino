@@ -34,8 +34,9 @@ void loop()
 {
    // Maintain the speed and update the heading
     car.update();
+    int distance = front.getDistance();
     // Stop after moving 1 meter
-    if (front.getDistance() != 0 && front.getDistance()< 200)
+    if (distance != 0 && distance< 200)
     {
         Serial.println("Stopping car");
         car.setSpeed(0);
