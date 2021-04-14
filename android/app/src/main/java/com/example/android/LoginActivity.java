@@ -13,12 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText usernameInput, passwordInput;
-
+    String username, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        EditText usernameInput = findViewById(R.id.input_username);
+        EditText passwordInput = findViewById(R.id.input_password);
+        username = usernameInput.getText().toString();
+        password = passwordInput.getText().toString();
         Button submit_button = findViewById(R.id.submit_button);
         submit_button.setOnClickListener(this);
     }
@@ -33,10 +36,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
     public void add_information() {
-        usernameInput = findViewById(R.id.input_username);
-        passwordInput = findViewById(R.id.input_password);
-        String username = usernameInput.getText().toString();
-        String password = passwordInput.getText().toString();
         Log.d("username", username);
         Log.d("password", password);
     }

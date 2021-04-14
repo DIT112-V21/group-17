@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
     public void openLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
