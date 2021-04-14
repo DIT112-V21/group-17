@@ -19,11 +19,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        TextView usernameInput = findViewById(R.id.input_username);
-        TextView passwordInput = findViewById(R.id.input_password);
         Button submit_button = findViewById(R.id.submit_button);
-        submit_button.hasOnClickListeners();
+        submit_button.setOnClickListener(this);
     }
 
     @Override
@@ -36,10 +33,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
     public void add_information() {
+        usernameInput = findViewById(R.id.input_username);
+        passwordInput = findViewById(R.id.input_password);
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
         Log.d("username", username);
         Log.d("password", password);
-
     }
 }
