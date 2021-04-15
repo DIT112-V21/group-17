@@ -45,7 +45,10 @@
      // Maintain the speed and update the heading
       car.update();
       int distance = front.getDistance();
+     // car.enableCruiseControl();
+      //car.disableCruiseControl();
       obstacleAvoidance(distance);
+      car.enableCruiseControl();
       
   }
   
