@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         openPost();
     }
     public void openPost() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ManualActivity.class);
         startActivity(intent);
     }
     public void add_information() {
