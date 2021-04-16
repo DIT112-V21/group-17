@@ -1,74 +1,74 @@
-  #include <Smartcar.h>
+#include <Smartcar.h>
+
+const unsigned long PRINT_INTERVAL = 100;
+unsigned long previousPrintout     = 0;
+
+ArduinoRuntime arduinoRuntime;
+BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
+BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
+DifferentialControl control(leftMotor, rightMotor);
+
+GY50 gyroscope(arduinoRuntime, 37);
+
+const auto pulsesPerMeter = 600;
+const int TRIGGER_PIN           = 6; // D6
+const int ECHO_PIN              = 7; // D7
+const unsigned int MAX_DISTANCE = 400;
+const int NORMAL_SPEED          = 1.5;
+
+
+DirectionalOdometer leftOdometer{arduinoRuntime, smartcarlib::pins::v2::leftOdometerPins, []() { leftOdometer.update(); }, pulsesPerMeter};
+DirectionalOdometer rightOdometer{arduinoRuntime, smartcarlib::pins::v2::rightOdometerPins, []() { rightOdometer.update(); }, pulsesPerMeter};
+
+
+
+SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
+SR04 front(arduinoRuntime, TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+void setup()
+{
+    Serial.begin(9600);
+    car.enableCruiseControl();
+    car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
+}
+
+void loop()
+{
+   // Maintain the speed and update the heading
+    car.update();
+   obstacleAvoidance();
+   //car.update();
+}
+
+
+
+/**
+ * ObstacleAvoidance: stops and rotate (calls rotateOnSpot)
+ * 
+*/
+void obstacleAvoidance(){
   
-  const unsigned long PRINT_INTERVAL = 100;
-  unsigned long previousPrintout     = 0;
-  
-  ArduinoRuntime arduinoRuntime;
-  BrushedMotor leftMotor(arduinoRuntime, smartcarlib::pins::v2::leftMotorPins);
-  BrushedMotor rightMotor(arduinoRuntime, smartcarlib::pins::v2::rightMotorPins);
-  DifferentialControl control(leftMotor, rightMotor);
-  
-  GY50 gyroscope(arduinoRuntime, 37);
-  
-  const auto pulsesPerMeter = 600;
-  const int TRIGGER_PIN           = 6; // D6
-  const int ECHO_PIN              = 7; // D7
-  const unsigned int MAX_DISTANCE = 400;
-  const long NORMAL_SPEED = 1.5;
-  
-  
-  DirectionalOdometer leftOdometer{
-    arduinoRuntime, 
-    smartcarlib::pins::v2::leftOdometerPins, []() { 
-      leftOdometer.update(); 
-      }, 
-      pulsesPerMeter};
-  DirectionalOdometer rightOdometer{
-    arduinoRuntime, 
-    smartcarlib::pins::v2::rightOdometerPins, []() { 
-      rightOdometer.update(); }, 
-      pulsesPerMeter};
-  
-  
-  
-  SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
-  SR04 front(arduinoRuntime, TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-  void setup()
-  {
-      Serial.begin(9600);
-      car.enableCruiseControl();
-      car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
-  }
-  
-  void loop()
-  {
-     // Maintain the speed and update the heading
-      car.update();
-      int distance = front.getDistance();
-     // car.enableCruiseControl();
-      //car.disableCruiseControl();
-      obstacleAvoidance(distance);
-      car.enableCruiseControl();
-      
-  }
-  
-  void obstacleAvoidance(int distance){
-        // Stop after moving 1 meter
-      if (distance > 0 && distance< 200)
-      {
-          Serial.println("Stopping car");
-          car.setSpeed(0);
-          Serial.println("Rotating car");
-      rotateOnSpot(90); // rotate clockwise 90 degrees on spot
-         // car.setSpeed(NORMAL_SPEED);
-      }
-      Serial.println("There is an obstacle in a distance of ");
-      Serial.print(front.getDistance());
-      Serial.println(" Stop and rotate");
+  int distance = front.getDistance();
+  int rotationDegree = 90;
+    // Stop after moving 1 meter 
+    if (distance > 0 && distance< 200)
+    {
+        Serial.println("Stopping car");
+        car.setSpeed(0);
+        // Rotate
+        rotateOnSpot(rotationDegree);
+        car.setSpeed(NORMAL_SPEED);
+       // car.update();
     }
-  
+
+    Serial.print("Distance: ");
+    Serial.println(front.getDistance());
+    
+  }
+
+
   void rotateOnSpot(int targetDegrees) {
-      int speed = smartcarlib::utils::getAbsolute(NORMAL_SPEED);
+    car.disableCruiseControl();
+      int speed = smartcarlib::utils::getAbsolute(40);
       targetDegrees %= 360; /* puts it on a (-360,360) scale */
       
       if (!targetDegrees)
@@ -76,9 +76,9 @@
       
       /* Let's set opposite speed for the motors on opposite sides, so it rotates on spot */
       if (targetDegrees > 0) { /* positive value means we should rotate clockwise */
-          car.overrideMotorSpeed(speed, -speed); /* left motors spin forward, right motors spin backward */
+          car.overrideMotorSpeed(40, -40); /* left motors spin forward, right motors spin backward */
       } else { /* rotate counter clockwise */
-          car.overrideMotorSpeed(-speed, speed); /* left motors spin backward, right motors spin forward */
+          car.overrideMotorSpeed(-40,40); /* left motors spin backward, right motors spin forward */
       }
       
       const auto initialHeading = car.getHeading(); /* the initial heading we'll use as offset to calculate the absolute displacement */
@@ -103,4 +103,5 @@
                                                                 360 to currentHeading) */
       }
       car.setSpeed(0); /* we have reached the target, so stop the car */
+     car.enableCruiseControl();
   }
