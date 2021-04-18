@@ -14,11 +14,14 @@ const auto pulsesPerMeter = 600;
 const int TRIGGER_PIN           = 6; // D6
 const int ECHO_PIN              = 7; // D7
 const unsigned int MAX_DISTANCE = 400;
+
 const int NORMAL_SPEED          = 1.5;
 
 
 DirectionalOdometer leftOdometer{arduinoRuntime, smartcarlib::pins::v2::leftOdometerPins, []() { leftOdometer.update(); }, pulsesPerMeter};
 DirectionalOdometer rightOdometer{arduinoRuntime, smartcarlib::pins::v2::rightOdometerPins, []() { rightOdometer.update(); }, pulsesPerMeter};
+
+
 
 
 
@@ -28,15 +31,20 @@ void setup()
 {
     Serial.begin(9600);
     car.enableCruiseControl();
+
     car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
+
 }
 
 void loop()
 {
    // Maintain the speed and update the heading
     car.update();
+
    obstacleAvoidance();
    //car.update();
+
+    
 }
 
 
