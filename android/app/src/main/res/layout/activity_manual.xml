@@ -9,14 +9,46 @@
         android:layout_centerVertical="false"
         android:id="@+id/above_connect"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="50dp" />
     <Button
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
         android:layout_below="@+id/above_connect"
         android:id="@+id/connect_manual"
         android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
+        android:text="Connect"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_below="@+id/connect_manual"
+        android:id="@+id/above_automatic"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_below="@+id/above_automatic"
+        android:id="@+id/connect_automatic"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Connect"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_below="@+id/connect_automatic"
+        android:id="@+id/above_emergency_break"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_below="@+id/above_emergency_break"
+        android:id="@+id/emergency_break"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="Connect"
         android:textSize="20sp" />
     <TextView
