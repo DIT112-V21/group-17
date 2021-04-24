@@ -15,31 +15,29 @@ const int TRIGGER_PIN           = 6; // D6
 const int ECHO_PIN              = 7; // D7
 const unsigned int MAX_DISTANCE = 400;
 
-const int NORMAL_SPEED          = 1.5;
+const int NORMAL_SPEED = 40; // 30% of the motor capacity
 
 
 DirectionalOdometer leftOdometer{arduinoRuntime, smartcarlib::pins::v2::leftOdometerPins, []() { leftOdometer.update(); }, pulsesPerMeter};
 DirectionalOdometer rightOdometer{arduinoRuntime, smartcarlib::pins::v2::rightOdometerPins, []() { rightOdometer.update(); }, pulsesPerMeter};
-
-
-
-
-
 SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
 SR04 front(arduinoRuntime, TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+
 void setup()
 {
     Serial.begin(9600);
-    car.enableCruiseControl();
+    //car.enableCruiseControl();
 
-    car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
+    car.setSpeed(NORMAL_SPEED); 
 
 }
 
 void loop()
 {
    // Maintain the speed and update the heading
-    car.update();
+    
+    car.setSpeed(30);
+    //car.update();
 
    obstacleAvoidance();
    //car.update();
@@ -111,5 +109,8 @@ void obstacleAvoidance(){
                                                                 360 to currentHeading) */
       }
       car.setSpeed(0); /* we have reached the target, so stop the car */
-     car.enableCruiseControl();
+     //car.enableCruiseControl();
   }
+  int measureDistance() {
+      return front.getDistance();
+}
