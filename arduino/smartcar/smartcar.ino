@@ -1,4 +1,11 @@
 #include <Smartcar.h>
+#include <vector>
+#include <MQTT.h>
+#include <WiFi.h>
+
+#ifdef __SMCE__
+#include <OV767X.h>
+#endif
 
 const unsigned long PRINT_INTERVAL = 100;
 unsigned long previousPrintout     = 0;
@@ -14,51 +21,97 @@ const auto pulsesPerMeter = 600;
 const int TRIGGER_PIN           = 6; // D6
 const int ECHO_PIN              = 7; // D7
 const unsigned int MAX_DISTANCE = 400;
+const auto oneSecond = 1000UL;
+const auto maxDistance = 400;
+const auto redFrontPin = 0;
 
-const int NORMAL_SPEED          = 1.5;
+const int NORMAL_SPEED = 40; // 30% of the motor capacity
 
+MQTTClient mqtt;
+#ifndef __SMCE__
+WiFiClient net;
+#endif
+
+std::vector<char> frameBuffer;
+
+//SimpleCar car(control);
 
 DirectionalOdometer leftOdometer{arduinoRuntime, smartcarlib::pins::v2::leftOdometerPins, []() { leftOdometer.update(); }, pulsesPerMeter};
 DirectionalOdometer rightOdometer{arduinoRuntime, smartcarlib::pins::v2::rightOdometerPins, []() { rightOdometer.update(); }, pulsesPerMeter};
-
-
-
-
-
 SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
 SR04 front(arduinoRuntime, TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+//SR04 sensor(arduinoRuntime, triggerPin, echoPin);
+
 void setup()
 {
     Serial.begin(9600);
-    car.enableCruiseControl();
-
+    // car.enableCruiseControl();
     car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
 
+    #ifdef __SMCE__
+      Camera.begin(QVGA, RGB888, 15);
+      frameBuffer.resize(Camera.width() * Camera.height() * Camera.bytesPerPixel());
+      mqtt.begin("aerostun.dev", 1883, WiFi);
+      // mqtt.begin(WiFi); // Will connect to localhost
+    #else
+      mqtt.begin(net);
+    #endif
+     if (mqtt.connect("arduino", "public", "public")) {
+         mqtt.subscribe("/smartcar/group17/control/#", 1);
+         mqtt.onMessage([](String topic, String message) {
+          if (topic == "/smartcar/group17/control/throttle") {
+            car.setSpeed(message.toInt());
+          } else if (topic == "/smartcar/group17/control/steering") {
+            car.setAngle(message.toInt());
+          } else {                   
+             Serial.println(topic + " " + message); 
+          }
+          });
+      }
 }
 
-void loop()
-{
-   // Maintain the speed and update the heading
-    car.update();
+void loop() {
 
-   obstacleAvoidance();
-   //car.update();
-
-    
+    car.setSpeed(30);
+    obstacleAvoidance();
+  
+    // connecting to MQTT
+    if (mqtt.connected()) {
+      mqtt.loop();
+      const auto currentTime = millis();
+    #ifdef __SMCE__
+        static auto previousFrame = 0UL;
+        if (currentTime - previousFrame >= 65) {
+          previousFrame = currentTime;
+          Camera.readFrame(frameBuffer.data());
+          mqtt.publish("/smartcar/group17/camera", frameBuffer.data(), frameBuffer.size(),
+                       false, 0);
+        }
+    #endif
+        static auto previousTransmission = 0UL;
+        if (currentTime - previousTransmission >= oneSecond) {
+          previousTransmission = currentTime;
+          const auto distance = String(measureDistance());
+          mqtt.publish("/smartcar/group17/ultrasound/front", distance);
+        }
+      }
+    #ifdef __SMCE__
+      // Avoid over-using the CPU if we are running in the emulator
+      delay(35);
+    #endif
 }
-
 
 
 /**
  * ObstacleAvoidance: stops and rotate (calls rotateOnSpot)
  * 
 */
-void obstacleAvoidance(){
+void obstacleAvoidance() {
   
   int distance = front.getDistance();
   int rotationDegree = 90;
     // Stop after moving 1 meter 
-    if (distance > 0 && distance< 200)
+    if (distance > 0 && distance < 200)
     {
         Serial.println("Stopping car");
         car.setSpeed(0);
@@ -71,7 +124,7 @@ void obstacleAvoidance(){
     Serial.print("Distance: ");
     Serial.println(front.getDistance());
     
-  }
+}
 
 
   void rotateOnSpot(int targetDegrees) {
@@ -111,5 +164,9 @@ void obstacleAvoidance(){
                                                                 360 to currentHeading) */
       }
       car.setSpeed(0); /* we have reached the target, so stop the car */
-     car.enableCruiseControl();
+     // car.enableCruiseControl();
   }
+
+int measureDistance() {
+      return front.getDistance();
+}
