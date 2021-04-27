@@ -27,6 +27,7 @@ const auto redFrontPin = 0;
 
 const int NORMAL_SPEED = 40; // 30% of the motor capacity
 
+
 MQTTClient mqtt;
 #ifndef __SMCE__
 WiFiClient net;
@@ -36,17 +37,22 @@ std::vector<char> frameBuffer;
 
 //SimpleCar car(control);
 
+
 DirectionalOdometer leftOdometer{arduinoRuntime, smartcarlib::pins::v2::leftOdometerPins, []() { leftOdometer.update(); }, pulsesPerMeter};
 DirectionalOdometer rightOdometer{arduinoRuntime, smartcarlib::pins::v2::rightOdometerPins, []() { rightOdometer.update(); }, pulsesPerMeter};
 SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
 SR04 front(arduinoRuntime, TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+
 //SR04 sensor(arduinoRuntime, triggerPin, echoPin);
+
 
 void setup()
 {
     Serial.begin(9600);
+
     // car.enableCruiseControl();
     car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
+
 
     #ifdef __SMCE__
       Camera.begin(QVGA, RGB888, 15);
@@ -70,7 +76,9 @@ void setup()
       }
 }
 
+
 void loop() {
+
 
     car.setSpeed(30);
     obstacleAvoidance();
@@ -164,9 +172,11 @@ void obstacleAvoidance() {
                                                                 360 to currentHeading) */
       }
       car.setSpeed(0); /* we have reached the target, so stop the car */
+
      // car.enableCruiseControl();
   }
 
 int measureDistance() {
+
       return front.getDistance();
 }
