@@ -1,47 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c2c2c2" >
+    android:background="@drawable/gradient_background" >
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="100dp" />
+
     <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/top"
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="#000000"
-        android:textSize="40sp" />
-    <Button
+        android:layout_below="@+id/top"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/center"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Smart-Post"
+        android:textColor="#FFFEFE"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="157dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="154dp"
+        android:layout_marginRight="154dp"
+        android:backgroundTint="#619a9a"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Login"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/center"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:layout_below="@+id/login_button"
+        />
+
     <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@+id/center"
         android:id="@+id/signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="147dp"
+        android:layout_marginLeft="147dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginRight="141dp"
+        android:backgroundTint="#619a9a"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Sign Up"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="145dp"
+        android:layout_height="112dp"
+        android:layout_below="@+id/header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginRight="129dp"
+        app:srcCompat="@drawable/logo" />
 </RelativeLayout>

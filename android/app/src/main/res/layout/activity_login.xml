@@ -1,78 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c2c2c2">
+    android:background="@drawable/gradient_background">
+
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="100dp" />
+
+
     <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/top"
         android:id="@+id/header"
-        android:layout_width="wrap_content"
+        android:layout_width="76dp"
         android:layout_height="wrap_content"
-        android:text="Login Screen"
-        android:textColor="#000000"
-        android:textSize="40sp" />
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/input_username"
-        android:id="@+id/username"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Username"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="166dp"
+        android:layout_marginLeft="166dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginRight="168dp"
+        android:layout_marginBottom="0dp"
+
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Login"
+        android:textColor="#474C6A"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <EditText
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/between_input"
         android:id="@+id/input_username"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="username"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
+        android:background="@drawable/round_edges"
+        android:drawableLeft="@drawable/ic_action_name"
+        android:hint=" Username"
         android:inputType="text" />
+
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/between_input"
         android:layout_width="match_parent"
         android:layout_height="20dp" />
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@+id/between_input"
-        android:id="@+id/password"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Password"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+
 
     <EditText
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@+id/password"
         android:id="@+id/input_password"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="password"
+        android:layout_height="40dp"
+        android:layout_below="@+id/input_username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="113dp"
+        android:layout_marginLeft="113dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginRight="105dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/round_edges"
+        android:drawableLeft="@drawable/ic_action_lock"
+        android:hint=" Password"
         android:inputType="textPassword" />
+
     <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@+id/input_password"
         android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/input_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginLeft="133dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginRight="134dp"
+        android:backgroundTint="#619a9a"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Submit"
-        android:textSize="20sp" />
+        android:textColor="#F6F8F8"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="0px"
+        app:iconTint="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        app:srcCompat="@drawable/logo" />
+
 </RelativeLayout>
