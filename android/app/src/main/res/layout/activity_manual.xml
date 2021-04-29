@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c2c2c2" >
@@ -51,46 +52,12 @@
         android:layout_height="50dp"
         android:text="Emergency"
         android:textSize="20sp" />
+
     <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:id="@+id/center_manual"
-        android:layout_width="150dp"
-        android:layout_height="50dp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@id/center_manual"
-        android:id="@+id/forward_manual"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Forward"
-        android:textSize="20sp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/center_manual"
-        android:id="@+id/right_manual"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Right"
-        android:textSize="20sp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_below="@id/center_manual"
-        android:id="@+id/backwards_manual"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Backwards"
-        android:textSize="20sp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/center_manual"
-        android:id="@+id/left_manual"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Left"
-        android:textSize="20sp" />
+        android:layout_width="269dp"
+        android:layout_height="215dp"
+        android:layout_centerInParent="true"
+        android:contentDescription="cameraView" />
+
 </RelativeLayout>
