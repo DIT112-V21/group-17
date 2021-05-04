@@ -1,8 +1,12 @@
 package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -11,7 +15,7 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 //MQTT connection part of the code is built on https://github.com/DIT112-V21/smartcar-mqtt-controller.git
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "SmartcarMqttController";
     private static final String EXTERNAL_MQTT_BROKER = "aerostun.dev";
     private static final String LOCALHOST = "10.0.2.2";
@@ -19,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String THROTTLE_CONTROL = "/smartcar/control/throttle";
     private static final String STEERING_CONTROL = "/smartcar/control/steering";
 
+    private static final int MOVEMENT_SPEED = 70;
+    private static final int IDLE_SPEED = 0;
+    private static final int STRAIGHT_ANGLE = 0;
+    private static final int STEERING_ANGLE = 50;
     private static final int QOS = 1;
 
     private MqttClient mMqttClient;
@@ -30,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mMqttClient = new MqttClient(getApplicationContext(), MQTT_SERVER, TAG);
 
-        connectToMqttBroker();
+        Button manualControl = findViewById(R.id.manualControl);
+
+        manualControl.setOnClickListener(this);
     }
 
     @Override
@@ -98,5 +108,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    void drive(int throttleSpeed, int steeringAngle, String actionDescription) {
+        if (!isConnected) {
+            final String notConnected = "Not connected (yet)";
+            Log.e(TAG, notConnected);
+            Toast.makeText(getApplicationContext(), notConnected, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Log.i(TAG, actionDescription);
+        mMqttClient.publish(THROTTLE_CONTROL, Integer.toString(throttleSpeed), QOS, null);
+        mMqttClient.publish(STEERING_CONTROL, Integer.toString(steeringAngle), QOS, null);
+    }
+
+    @Override
+    public void onClick(View v) {
+        connectToMqttBroker();
+        Intent intent = new Intent(this, ManualActivity.class);
+        startActivity(intent);
     }
 }
