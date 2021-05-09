@@ -26,21 +26,21 @@
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="157dp"
-        android:layout_marginLeft="157dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginRight="154dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginLeft="131dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginRight="130dp"
         android:backgroundTint="#619a9a"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Login"
+        android:text="Get started!"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -52,26 +52,6 @@
         android:layout_height="20dp"
         android:layout_below="@+id/login_button"
         />
-
-    <Button
-        android:id="@+id/signup_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/center"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="147dp"
-        android:layout_marginLeft="147dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginRight="141dp"
-        android:backgroundTint="#619a9a"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Sign Up"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView3"

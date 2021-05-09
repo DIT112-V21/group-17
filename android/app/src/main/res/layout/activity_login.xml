@@ -84,22 +84,22 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/submit_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/mailman_button"
+        android:layout_width="232dp"
+        android:layout_height="58dp"
         android:layout_below="@+id/input_password"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="133dp"
-        android:layout_marginLeft="133dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="134dp"
-        android:layout_marginRight="134dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
         android:backgroundTint="#619a9a"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Submit"
+        android:text="Login as mailman"
         android:textColor="#F6F8F8"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -113,5 +113,26 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="65dp"
         app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/receiver_button"
+        android:layout_width="329dp"
+        android:layout_height="59dp"
+        android:layout_below="@+id/mailman_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:backgroundTint="#619a9a"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Login as receiver"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:cornerRadius="0px" />
 
 </RelativeLayout>
