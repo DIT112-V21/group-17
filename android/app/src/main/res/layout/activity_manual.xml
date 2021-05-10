@@ -1,63 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c2c2c2" >
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:id="@+id/above_connect"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/above_connect"
-        android:id="@+id/connect_manual"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="Connect"
-        android:textSize="20sp" />
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/connect_manual"
-        android:id="@+id/above_automatic"
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/above_automatic"
-        android:id="@+id/connect_automatic"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="Disconnect"
-        android:textSize="20sp" />
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/connect_automatic"
-        android:id="@+id/above_emergency_break"
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
-    <Button
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="false"
-        android:layout_below="@+id/above_emergency_break"
-        android:id="@+id/emergency_break"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:text="Emergency"
-        android:textSize="20sp" />
+    tools:context=".ManualActivity">
 
-    <TextView
-        android:id="@+id/center_manual"
-        android:layout_width="269dp"
-        android:layout_height="215dp"
-        android:layout_centerInParent="true"
-        android:contentDescription="cameraView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/Forward"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:textColor="#FAFAFA"
+            android:backgroundTint="#616161"
+            android:text="Forward" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FAFAFA"
+                android:backgroundTint="#616161"
+                android:text="Left" />
+
+            <Button
+                android:id="@+id/Stop"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#FAFAFA"
+                android:backgroundTint="#212121"
+                android:text="Stop" />
+
+            <Button
+                android:id="@+id/Right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#FAFAFA"
+                android:backgroundTint="#616161"
+                android:text="Right" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Backward"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:textColor="#FAFAFA"
+            android:backgroundTint="#616161"
+            android:text="Backward" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
