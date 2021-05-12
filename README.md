@@ -26,9 +26,14 @@ Autopilot
 
 # Devolopment Team
 .Elif Sayeed Yaqoub
+
 .Leila Bencheikh
+
 .Maab Mohammedali
+
 .Sofia Sjöblad
+
 .Sven Hagenfors
+
 .Zizhuang Cui
 
