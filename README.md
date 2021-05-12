@@ -18,31 +18,31 @@ Autopilot
 
 # Resources Used
 
-.SMCE
+- SMCE
 
-.Smartcar shield
+- Smartcar shield
 
-.C++
+- C++
 
-.Java
+- Java
 
-.Github
+- Github
 
-.Android studio
+- Android studio
 
-.Arduino
+- Arduino
 
 # Devolopment Team
 
-.Elif Sayeed Yaqoub
+- Elif Sayeed Yaqoub
 
-.Leila Bencheikh
+- Leila Bencheikh
 
-.Maab Mohammedali
+- Maab Mohammedali
 
-.Sofia Sjöblad
+- Sofia Sjöblad
 
-.Sven Hagenfors
+- Sven Hagenfors
 
-.Zizhuang Cui
+- Zizhuang Cui
 
