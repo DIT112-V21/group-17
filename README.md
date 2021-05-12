@@ -17,14 +17,23 @@ obstacles avoidance
 Autopilot
 
 # Resources Used
+
 .SMCE
+
 .Smartcar shield
+
 .C++
+
+.Java
+
 .Github
+
 .Android studio
+
 .Arduino
 
 # Devolopment Team
+
 .Elif Sayeed Yaqoub
 
 .Leila Bencheikh
