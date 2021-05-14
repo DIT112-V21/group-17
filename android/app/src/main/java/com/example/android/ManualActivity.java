@@ -2,6 +2,7 @@ package com.example.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -10,9 +11,12 @@ import android.graphics.Camera;
 import android.graphics.Color;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -41,12 +45,13 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     private static final int QOS = 1;
     private static final int IMAGE_WIDTH = 320;
     private static final int IMAGE_HEIGHT = 240;
+
     Context context;
+
 
     private MqttClient mMqttClient;
     private boolean isConnected = false;
     private ImageView mCameraView;
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual);
@@ -67,6 +72,32 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
         backward.setOnClickListener(this);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        connectToMqttBroker();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        mMqttClient.disconnect(new IMqttActionListener() {
+
+            @Override
+            public void onSuccess(IMqttToken asyncActionToken) {
+                Log.i(TAG, "Disconnected from broker");
+            }
+
+            @Override
+            public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            }
+        });
+    }
+
+
 
     private void connectToMqttBroker() {
         if (!isConnected) {
@@ -130,6 +161,7 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
         }
 
     }
+
     void drive(int throttleSpeed, int steeringAngle, String actionDescription) {
         if (!isConnected) {
             final String notConnected = "Not connected (yet)";
@@ -182,4 +214,6 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
+
+
 }
