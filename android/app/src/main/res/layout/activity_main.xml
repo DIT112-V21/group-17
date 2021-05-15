@@ -19,7 +19,7 @@
         android:layout_below="@+id/top"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Smart-Post"
+        android:text="DelivRover"
         android:textColor="#FFFEFE"
         android:textSize="40sp"
         android:textStyle="bold" />

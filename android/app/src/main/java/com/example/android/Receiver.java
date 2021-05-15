@@ -38,7 +38,7 @@ public class Receiver extends AppCompatActivity implements View.OnClickListener 
                 layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popwindow, null);
                 popupWindow = new PopupWindow(container, 800,1000,true);
-                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY, v.getWidth()/3,500);
+                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY, v.getWidth()/4,500);
         }
     }
 
