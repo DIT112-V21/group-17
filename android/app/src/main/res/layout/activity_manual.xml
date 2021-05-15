@@ -26,8 +26,7 @@
         android:layout_toLeftOf="@+id/stop"
         android:text="start"
         android:textSize="20sp"
-        app:backgroundTint="#5CB860"
-        app:cornerRadius="0px" />
+        app:backgroundTint="#5CB860" />
 
     <TextView
         android:layout_centerHorizontal="true"
@@ -50,7 +49,6 @@
         android:text="stop"
         android:textSize="20sp"
         app:backgroundTint="#F10B0B"
-        app:cornerRadius="0px"
         app:iconTint="#D61818" />
 
     <TextView
@@ -70,85 +68,85 @@
 
     <Button
         android:id="@+id/forward_manual"
-        android:layout_width="286dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginLeft="122dp"
+        android:layout_marginTop="406dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginRight="129dp"
         android:backgroundTint="#619a9a"
         android:drawableTop="@drawable/ic_baseline_arrow_drop_up_24"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Forward"
+        android:text="F"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:cornerRadius="0px" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/right_manual"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="-56dp"
-        android:layout_marginTop="381dp"
+        android:layout_marginLeft="-37dp"
+        android:layout_marginTop="492dp"
+        android:layout_marginBottom="159dp"
         android:layout_toRightOf="@id/center_manual"
         android:backgroundTint="#619a9a"
         android:drawableRight="@drawable/ic_baseline_arrow_right_24"
-        android:text="Right"
-        android:textSize="20sp"
-        app:cornerRadius="0px" />
+        android:text="R"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/backwards_manual"
-        android:layout_width="267dp"
+        android:layout_width="151dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="89dp"
-        android:layout_marginLeft="89dp"
-        android:layout_marginTop="466dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginTop="577dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginRight="130dp"
         android:backgroundTint="#619a9a"
         android:drawableBottom="@drawable/ic_baseline_arrow_drop_down_24"
-        android:text="Backwards"
-        android:textSize="20sp"
-        app:cornerRadius="0px" />
+        android:text="BWD"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/left_manual"
-        android:layout_width="135dp"
-        android:layout_height="76dp"
+        android:layout_width="130dp"
+        android:layout_height="82dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="381dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="489dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginRight="91dp"
+        android:layout_marginBottom="160dp"
         android:layout_toStartOf="@+id/right_manual"
         android:layout_toLeftOf="@+id/right_manual"
         android:backgroundTint="#619a9a"
         android:drawableLeft="@drawable/ic_baseline_arrow_left_24"
-        android:text="Left"
-        android:textSize="20sp"
-        app:cornerRadius="0px" />
+        android:text="L"
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="164dp"
+        android:layout_height="280dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"

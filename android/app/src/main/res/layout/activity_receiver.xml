@@ -8,17 +8,36 @@
     android:background="@drawable/gradient_background">
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="205dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="240dp"
+        android:id="@+id/notification"
+        android:layout_width="364dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="288dp"
+        android:backgroundTint="#00BCD4"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Confirm Delivery"
+        android:text="Notification"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:icon="@android:drawable/ic_popup_reminder"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="#619a9a"
-        app:cornerRadius="0px"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/confirm"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="368dp"
+        android:layout_height="103dp"
+        android:backgroundTint="#6ACCD8"
+        android:text="Confirm delivery"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:icon="?android:attr/textCheckMarkInverse"
+        app:iconTint="@color/white"
+        app:iconTintMode="src_in"
+        app:strokeColor="#FFFFFF"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="419dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
