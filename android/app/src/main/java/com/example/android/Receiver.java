@@ -1,25 +1,25 @@
 package com.example.android;
 
 public class Receiver extends User {
-    private String adress;
+    private String address;
 
-    public Receiver(String ID, String userName, String passWord, String adress) {
+    public Receiver(String ID, String userName, String passWord, String address) {
         super(ID, userName, passWord);
-        this.adress = adress;
+        this.address = address;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
         return "Receiver{" +
-                "adress='" + adress + '\'' +
+                "address='" + address + '\'' +
                 "} " + super.toString();
     }
 }
