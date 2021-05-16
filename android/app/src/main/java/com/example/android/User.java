@@ -1,15 +1,19 @@
 package com.example.android;
 
-public class User {
+import java.util.ArrayList;
+
+public abstract class User {
 
     private String ID;
     private String userName;
     private String passWord;
+    private ArrayList<Message> notification;
 
     public User(String ID,String userName,String passWord){
         this.ID=ID;
         this.userName=userName;
         this.passWord=passWord;
+        this.notification= new ArrayList<Message>();
     }
 
     public String getID() {
