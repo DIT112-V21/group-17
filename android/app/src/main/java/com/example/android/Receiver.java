@@ -20,6 +20,6 @@ public class Receiver extends User {
     public String toString() {
         return "Receiver{" +
                 "adress='" + adress + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }
