@@ -78,8 +78,8 @@ void loop() {
   if (mqtt.connected()) {
     
     // car movement
-    car.setSpeed(30);
-    obstacleAvoidance(); 
+    //car.setSpeed(30);
+    //obstacleAvoidance(); 
     
     mqtt.loop();
     const auto currentTime = millis();

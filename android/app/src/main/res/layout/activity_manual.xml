@@ -34,6 +34,14 @@
         app:backgroundTint="#5CB860"
         app:iconTint="#D61818" />
 
+ 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:contentDescription="cameraView" />
+
     <Button
         android:id="@+id/stop_manual"
         android:layout_below="@+id/top"
@@ -46,6 +54,7 @@
         android:textSize="20sp"
         app:backgroundTint="#F10B0B"
         app:iconTint="#D61818" />
+
 
     <ImageView
         android:id="@+id/camera_view"

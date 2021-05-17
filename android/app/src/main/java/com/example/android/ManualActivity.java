@@ -41,7 +41,6 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     private static final int IDLE_SPEED = 0;
     private static final int STRAIGHT_ANGLE = 0;
     private static final int STEERING_ANGLE = 50;
-    //private static final String CAMERA_TOPIC = "Camera_Stream";
     private static final int QOS = 1;
     private static final int IMAGE_WIDTH = 320;
     private static final int IMAGE_HEIGHT = 240;
