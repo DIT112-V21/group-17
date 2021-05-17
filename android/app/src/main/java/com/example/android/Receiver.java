@@ -3,8 +3,8 @@ package com.example.android;
 public class Receiver extends User {
     private String address;
 
-    public Receiver(String ID, String userName, String passWord, String address) {
-        super(ID, userName, passWord);
+    public Receiver(String userName, String passWord, String address) {
+        super( userName, passWord);
         this.address = address;
     }
 
