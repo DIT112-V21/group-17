@@ -38,7 +38,7 @@ public class Controller {
 
     public void ConfirmPickupMessage(Mailman mailman, Receiver receiver){
         String Id="12";
-        String content="Your mail has arrived and waits for you ! please confirm pickup :) ";
+        String content="Confirmed!";
         Message message=new Message(Id,content,mailman.getUserName(),receiver.getUserName());
         mailman.getNotification().add(message);
     }
