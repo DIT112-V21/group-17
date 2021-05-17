@@ -56,18 +56,20 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manual);
         mMqttClient = new MqttClient(getApplicationContext(), MQTT_SERVER, TAG);
-        mCameraView = findViewById(R.id.imageView);
+        mCameraView = findViewById(R.id.camera_view);
 
         connectToMqttBroker();
 
-        Button forward = findViewById(R.id.Forward);
-        Button left = findViewById(R.id.Left);
-        Button stop = findViewById(R.id.Stop);
-        Button right = findViewById(R.id.Right);
-        Button backward = findViewById(R.id.Backward);
+        Button start = findViewById(R.id.home_manual);
+        Button stop = findViewById(R.id.stop_manual);
+        Button forward = findViewById(R.id.forward_manual);
+        Button left = findViewById(R.id.left_manual);
+        Button right = findViewById(R.id.right_manual);
+        Button backward = findViewById(R.id.backwards_manual);
+        start.setOnClickListener(this);
+        stop.setOnClickListener(this);
         forward.setOnClickListener(this);
         left.setOnClickListener(this);
-        stop.setOnClickListener(this);
         right.setOnClickListener(this);
         backward.setOnClickListener(this);
 
@@ -197,23 +199,30 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.Forward:
-                forward();
+            case R.id.home_manual:
+                home();
                 break;
-            case R.id.Left:
-                left();
-                break;
-            case R.id.Stop:
+            case R.id.stop_manual:
                 stop();
                 break;
-            case R.id.Right:
+            case R.id.forward_manual:
+                forward();
+                break;
+            case R.id.left_manual:
+                left();
+                break;
+            case R.id.right_manual:
                 right();
                 break;
-            case R.id.Backward:
+            case R.id.backwards_manual:
                 backward();
                 break;
         }
     }
 
+    public void home() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 
 }
