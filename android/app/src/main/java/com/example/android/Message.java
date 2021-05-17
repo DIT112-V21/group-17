@@ -1,5 +1,7 @@
 package com.example.android;
 
+import java.util.UUID;
+
 public class Message {
     private String ID;
     private String content;
@@ -7,18 +9,16 @@ public class Message {
     private String receiver;
 
 
-    public Message(String ID, String content,String sender,String receiver) {
-        this.ID = ID;
+    public Message(String content,String sender,String receiver) {
+        UUID uuid = UUID.randomUUID();
+        this.ID = uuid.toString();
+        this.ID = ID.substring(0, Math.min(ID.length(), 3));
+
         this.content = content;
     }
 
-
     public String getID() {
         return ID;
-    }
-
-    public void setID(String ID) {
-        this.ID = ID;
     }
 
     public String getContent() {
