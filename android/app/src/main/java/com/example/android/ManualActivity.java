@@ -60,11 +60,11 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
 
         connectToMqttBroker();
 
-        Button forward = findViewById(R.id.Forward);
-        Button left = findViewById(R.id.Left);
-        Button stop = findViewById(R.id.Stop);
-        Button right = findViewById(R.id.Right);
-        Button backward = findViewById(R.id.Backward);
+        Button forward = findViewById(R.id.forward_manual);
+        Button left = findViewById(R.id.left_manual);
+        Button stop = findViewById(R.id.stop);
+        Button right = findViewById(R.id.right_manual);
+        Button backward = findViewById(R.id.backwards_manual);
         forward.setOnClickListener(this);
         left.setOnClickListener(this);
         stop.setOnClickListener(this);
@@ -197,19 +197,19 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.Forward:
+            case R.id.forward_manual:
                 forward();
                 break;
-            case R.id.Left:
+            case R.id.left_manual:
                 left();
                 break;
-            case R.id.Stop:
+            case R.id.stop:
                 stop();
                 break;
-            case R.id.Right:
+            case R.id.right_manual:
                 right();
                 break;
-            case R.id.Backward:
+            case R.id.backwards_manual:
                 backward();
                 break;
         }
