@@ -7,28 +7,29 @@
     android:background="#5c94c3">
 
     <TextView
+        android:id="@+id/top"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
-        android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="50dp" />
+
+    <ImageView
+        android:id="@+id/mail_symbol"
+        android:layout_below="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/logo" />
 
 
     <TextView
-        android:id="@+id/header"
-        android:layout_width="76dp"
+        android:id="@+id/login_text"
+        android:layout_below="@id/mail_symbol"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="165dp"
-        android:layout_marginLeft="165dp"
-        android:layout_marginTop="163dp"
-        android:layout_marginEnd="169dp"
-        android:layout_marginRight="169dp"
-        android:layout_marginBottom="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
 
         android:fontFamily="sans-serif-smallcaps"
         android:text="Login"
@@ -36,63 +37,57 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/below_login_text"
+        android:layout_below="@+id/login_text"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
     <EditText
         android:id="@+id/input_username"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/header"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="111dp"
-        android:layout_marginLeft="111dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
+        android:layout_below="@+id/below_login_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:hint=" Username"
         android:inputType="text" />
 
     <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/between_input"
+        android:id="@+id/below_input_username"
+        android:layout_below="@+id/input_username"
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <EditText
         android:id="@+id/input_password"
-        android:layout_width="183dp"
-        android:layout_height="42dp"
-        android:layout_below="@+id/input_username"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="113dp"
-        android:layout_marginLeft="113dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="34dp"
+        android:layout_below="@id/below_input_username"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:hint=" Password"
         android:inputType="textPassword" />
 
+    <TextView
+        android:id="@+id/below_input_password"
+        android:layout_below="@+id/input_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
     <Button
         android:id="@+id/mailman_button"
-        android:layout_width="232dp"
-        android:layout_height="58dp"
-        android:layout_below="@+id/input_password"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="78dp"
-        android:layout_marginLeft="78dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
+        android:layout_below="@+id/below_input_password"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:backgroundTint="#ffae26"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Login as mailman"
@@ -102,32 +97,21 @@
         app:cornerRadius="0px"
         app:iconTint="#FFFFFF" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="95dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginRight="158dp"
-        app:srcCompat="@drawable/logo" />
+    <TextView
+        android:id="@+id/below_mailman_button"
+        android:layout_below="@+id/mailman_button"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/receiver_button"
-        android:layout_width="329dp"
-        android:layout_height="59dp"
-        android:layout_below="@+id/mailman_button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="77dp"
-        android:layout_marginLeft="77dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginRight="92dp"
+        android:layout_below="@+id/below_mailman_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:backgroundTint="#ffae26"
         android:fontFamily="sans-serif-smallcaps"
         android:text="Login as receiver"

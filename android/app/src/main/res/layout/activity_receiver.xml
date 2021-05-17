@@ -11,16 +11,10 @@
 
     <Button
         android:id="@+id/notificationbttn"
-        android:layout_width="62dp"
-        android:layout_height="78dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="111dp"
-        android:layout_marginLeft="111dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="337dp"
-        android:layout_marginRight="337dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:backgroundTint="#619a9a"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="24sp"
@@ -28,23 +22,5 @@
         app:cornerRadius="40px"
         app:icon="@android:drawable/ic_popup_reminder"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-    <TextView
-        android:id="@+id/selectedItemPreview"
-        android:layout_width="262dp"
-        android:layout_height="256dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginBottom="301dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
-
 
 </RelativeLayout>
