@@ -9,7 +9,7 @@ public abstract class User {
     private String userName;
     private String passWord;
 
-    private ArrayList<Message> notification;
+    private ArrayList<Message> notifications;
 
     public User(String userName,String passWord){
         UUID uuid = UUID.randomUUID();
@@ -18,7 +18,7 @@ public abstract class User {
 
         this.userName=userName;
         this.passWord=passWord;
-        this.notification= new ArrayList<Message>();
+        this.notifications= new ArrayList<Message>();
     }
 
     public String getID() {
@@ -40,13 +40,11 @@ public abstract class User {
     public void setPassWord(String passWord) {
         this.passWord = passWord;
     }
-    public ArrayList<Message> getNotification() {
-        return notification;
+    public ArrayList<Message> getNotifications() {
+        return notifications;
     }
 
-    public void setNotification(ArrayList<Message> notification) {
-        this.notification = notification;
-    }
+
 
 
     @Override
