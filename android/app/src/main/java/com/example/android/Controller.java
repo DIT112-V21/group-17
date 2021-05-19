@@ -31,17 +31,17 @@ public class Controller {
     }
 
     //add expect message to the mailman's list of messages and creates a delivery
-    public void expectDelivery(Mailman mailman, Receiver receiver) {
+    public void sendExpectDelivery(Mailman mailman, Receiver receiver) {
         createDelivery(mailman, receiver);
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
         Message message = new Message(content, mailman.getUserName(), receiver.getUserName());
-        receiver.getNotification().add(message);
+        receiver.getNotifications().add(message);
     }
 
-    public void pickupMessage(Mailman mailman, Receiver receiver, Delivery delivery) {
+    public void sendPickupMessage(Mailman mailman, Receiver receiver, Delivery delivery) {
         String content = "Your mail has arrived and waits for you ! please confirm pickup :) ";
         Message message = new Message(content, mailman.getUserName(), receiver.getUserName());
-        receiver.getNotification().add(message);
+        receiver.getNotifications().add(message);
         delivery.setStatus("Delivered");
     }
 
@@ -49,10 +49,21 @@ public class Controller {
         String content = "Pickup Confirmed!";
         delivery.setStatus("Picked-up");
         Message message = new Message(content, mailman.getUserName(), receiver.getUserName());
-        mailman.getNotification().add(message);
+        mailman.getNotifications().add(message);
     }
 
+    //Display messages(both mailman and receiver)
+    public void displayListOfMessages(User user) {
+        if (user.getNotifications().isEmpty()) {
+            System.out.println("No messages to show");
+        } else {
+            for (Message message : user.getNotifications()) {
+                System.out.println(message);
+            }
+        }
+    }
 
+    // Display the list of deliveries (history)
     public void displayListOfDeliveries() {
         if (deliveries.isEmpty()) {
             System.out.println("No data to show");
