@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.manual_button:
-                Intent intent = new Intent(this, HomeActivity.class);
+                Intent intent = new Intent(this, ManualActivity.class);
                 startActivity(intent);
                 break;
             case R.id.notification_button:
