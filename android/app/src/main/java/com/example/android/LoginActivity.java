@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.mailman_button:
                 add_information();
-                Intent intent = new Intent(this, ManualActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 break;
             case R.id.receiver_button:
