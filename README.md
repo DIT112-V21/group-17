@@ -3,7 +3,7 @@
 
 # What are we going to make?
 
-We want to develop a self-driving 'friendly' electric Smart car that can go to a specific location. The car will be fnctional on the hallway of a floor of a building, With this car you wont need to go pick up mail yourself the car will take care of that for you and send you a notification when you have mail to pick and stops for you to pick up your mail when it reaches your door . You will be able to track the location of your mail at all times, and you will receive an estimated time of its arrival.  
+We want to develop a self-driving 'friendly' electric Smart car that can go to a specific location. The car will be fnctional on the hallway of a floor of a building, With this car you wont need to go pick up mail yourself the car will take care of that for you and send you a notification when you have mail to pick and stops for you to pick up your mail when it reaches your door . 
 
 # Why will you make it?
 
