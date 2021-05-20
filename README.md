@@ -3,11 +3,14 @@
 
 # What are we going to make?
 
-We want to develop a self-driving 'friendly' electric Smart car that can go to a specific location. The car will be fnctional on the hallway of a floor of a building, With this car you wont need to go pick up mail yourself the car will take care of that for you and send you a notification when you have mail to pick and stops for you to pick up your mail when it reaches your door . 
+
+
+We want to develop a self-driving 'friendly' electric Smart car that can go to a specific location. The car will be functional on the hallway of a floor of a building, With this car you wont need to go pick up mail yourself the car will take care of that for you. When the car  reaches your door  you will get a  notification to pick up your mail  .
+
 
 # Why will you make it?
 
-Sometimes we just feel like going picking up the mail wearing pyjamas and don't want to be seen so :D, moreover it will facilitate for the mail man the work so he/she will will just have to move from floor to floor not from door to door than cars in each floor will move in parallel. 
+This period of the pandemic requires less human contact in order to avoid contamination . And Sometimes we just feel like going picking up the mail wearing pyjamas and don't want to be seen so :D, moreover it will facilitate for the mail man the work so he/she will will just have to move from floor to floor not from door to door than cars in each floor will move in parallel. 
 
 # How are you going to make it?
 
@@ -30,7 +33,7 @@ Autopilot
 
 - Android studio
 
-- Arduino
+- Arduino IDE
 
 # Devolopment Team
 
