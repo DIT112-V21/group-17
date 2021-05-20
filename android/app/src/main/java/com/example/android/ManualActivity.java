@@ -220,7 +220,7 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void home() {
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 
