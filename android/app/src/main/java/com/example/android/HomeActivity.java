@@ -39,7 +39,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intentx = new Intent(this, ReceiverActivity.class);
                 startActivity(intentx);
             case R.id.receiver_list_button:
-                Intent intentz = new Intent(this, ReceiverListAdapter.class);
+                Intent intentz = new Intent(this, ReceiverListActivity.class);
                 startActivity(intentz);
         }
     }

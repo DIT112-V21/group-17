@@ -13,7 +13,7 @@ public class ReceiverListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_receiver);
+        setContentView(R.layout.activity_receiver_list);
         Log.d(TAG, "onCreate: Started.");
         ListView mListView = (ListView) findViewById(R.id.listView);
 
@@ -37,7 +37,7 @@ public class ReceiverListActivity extends AppCompatActivity {
         Controller.addReceiver("Receiver_1","123"," room 17");
         Controller.addReceiver("Receiver_1","123"," room 18");
 
-        ReceiverListAdapter adapter = new ReceiverListAdapter(this, R.layout.activity_receiver_list, Controller.receiversList);
+        ReceiverListAdapter adapter = new ReceiverListAdapter(this, R.layout.adapter_receiver_list_view_layout, Controller.receiversList);
         mListView.setAdapter(adapter);
     }
 }
