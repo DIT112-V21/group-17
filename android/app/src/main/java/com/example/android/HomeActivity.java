@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button manual_button = findViewById(R.id.manual_button);
         Button notification_button = findViewById(R.id.notification_button);
         Button confirmation_button = findViewById(R.id.confirmation_button);
-      Button logout = findViewById(R.id.logout_button)
+      Button logout = findViewById(R.id.logout_button);
 
         Button receiver_list_button = findViewById(R.id.receiver_list_button);
         manual_button.setOnClickListener(this);
