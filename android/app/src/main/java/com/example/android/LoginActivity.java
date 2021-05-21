@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         password = passwordInput.getText().toString();
         switch (v.getId()){
             case R.id.mailman_button:
-                
-                if((username.equals("mailman")) && (password.equals("123"))) {
+                boolean verify=Controller.verifyMailmanCredentials(username, password);
+                if(verify==true) {
                     add_information();
                     Intent intent = new Intent(this, HomeActivity.class);
                     startActivity(intent);
