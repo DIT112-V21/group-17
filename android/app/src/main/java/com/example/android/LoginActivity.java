@@ -6,10 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "Login";
     String username, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.mailman_button:
-                add_information();
-                Intent intent = new Intent(this, HomeActivity.class);
-                startActivity(intent);
+                if(username.equals("mailman") && password.equals("123")) {
+                    add_information();
+                    Intent intent = new Intent(this, HomeActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    final String wrongpassword = "Wrong password! Try again!";
+                    Log.w(TAG, wrongpassword);
+                    Toast.makeText(getApplicationContext(), wrongpassword, Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.receiver_button:
                 add_information();

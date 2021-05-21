@@ -15,7 +15,7 @@ public class Controller {
     }
 
     //add a new mailman
-    public void addMailman(String name, String password) {
+    public static void addMailman(String name, String password) {
         Mailman mailman = new Mailman(name, password);
         mailmenList.add(mailman);
     }
