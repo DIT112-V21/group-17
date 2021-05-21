@@ -22,12 +22,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
+
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
 
         <activity android:name=".BrowseErrorActivity" />
+
+        <activity android:name=".PickupNotificationActivity"></activity>
+
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReceiverActivity" />
