@@ -18,9 +18,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button manual_button = findViewById(R.id.manual_button);
         Button notification_button = findViewById(R.id.notification_button);
         Button confirmation_button = findViewById(R.id.confirmation_button);
+        Button logout = findViewById(R.id.logout_button);
+
         manual_button.setOnClickListener(this);
         notification_button.setOnClickListener(this);
         confirmation_button.setOnClickListener(this);
+        logout.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +40,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.confirmation_button:
                 Intent intentx = new Intent(this, PickupNotificationActivity.class);
                 startActivity(intentx);
+                break;
+            case R.id.logout_button:
+                Intent intenty = new Intent(this, LoginActivity.class);
+                startActivity(intenty);
+                break;
         }
     }
 }
