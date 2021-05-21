@@ -91,8 +91,8 @@
         android:text="View list of receivers"
         android:textSize="20sp"
         android:textStyle="bold" />
-  
 
+    <Button
         android:id="@+id/logout_button"
         android:layout_below="@+id/receiver_list_button"
         android:layout_width="wrap_content"
