@@ -1,12 +1,11 @@
 package com.example.android;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,9 +17,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button manual_button = findViewById(R.id.manual_button);
         Button notification_button = findViewById(R.id.notification_button);
         Button confirmation_button = findViewById(R.id.confirmation_button);
+        Button receiver_list_button = findViewById(R.id.receiver_list_button);
         manual_button.setOnClickListener(this);
         notification_button.setOnClickListener(this);
         confirmation_button.setOnClickListener(this);
+        receiver_list_button.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +38,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.confirmation_button:
                 Intent intentx = new Intent(this, ReceiverActivity.class);
                 startActivity(intentx);
+            case R.id.receiver_list_button:
+                Intent intentz = new Intent(this, ReceiverListAdapter.class);
+                startActivity(intentz);
         }
     }
 }

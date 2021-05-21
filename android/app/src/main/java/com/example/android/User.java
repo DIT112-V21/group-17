@@ -55,4 +55,6 @@ public abstract class User {
                 ", passWord='" + passWord + '\'' +
                 '}';
     }
+
+   // public abstract String getAddress();
 }

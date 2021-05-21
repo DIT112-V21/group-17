@@ -36,11 +36,11 @@
 
     <ImageView
         android:id="@+id/mail_symbol"
-        android:layout_below="@+id/below_name"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/below_name"
         android:layout_centerVertical="true"
+        android:layout_marginTop="-127dp"
         app:srcCompat="@drawable/logo" />
 
     <Button
@@ -79,4 +79,17 @@
         android:text="Confirmation Notice"
         android:textSize="20sp"
         android:textStyle="bold" />
+    <Button
+        android:id="@+id/receiver_list_button"
+        android:layout_below="@+id/confirmation_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:backgroundTint="#000033"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="View list of receivers"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>
