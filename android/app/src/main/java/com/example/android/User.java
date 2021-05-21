@@ -18,7 +18,7 @@ public abstract class User {
 
         this.userName=userName;
         this.passWord=passWord;
-        this.notifications= new ArrayList<Message>();
+        this.notifications = new ArrayList<Message>();
     }
 
     public String getID() {
