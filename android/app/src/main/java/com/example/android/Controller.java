@@ -54,6 +54,15 @@ public class Controller {
         mailman.getNotifications().add(message);
     }
 
+    public Mailman isLoggedIn(String name, String password){
+        for (Mailman mailman:mailmenList){
+            if ((mailman.getName().equals(name)) &&(mailman.getPassWord().equals(password))){
+                return mailman;
+            }
+        }
+        return null;
+    }
+
 
     public static boolean verifyMailmanCredentials(String name, String password){
         for (Mailman mailman:mailmenList){

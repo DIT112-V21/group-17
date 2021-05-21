@@ -2,12 +2,17 @@ package com.example.android;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "Home";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +61,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        final String noBack = "You need to log out first!";
+        Log.w(TAG, noBack);
+        Toast.makeText(getApplicationContext(), noBack, Toast.LENGTH_SHORT).show();
+
+        return;
     }
 }
