@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentq);
                 break;
             case R.id.confirmation_button:
-                Intent intentx = new Intent(this, ReceiverActivity.class);
+                Intent intentx = new Intent(this, PickupNotificationActivity.class);
                 startActivity(intentx);
         }
     }
