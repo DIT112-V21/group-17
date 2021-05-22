@@ -15,4 +15,11 @@
 
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string></resources>
+    <string name="dismiss_error">Dismiss</string>
+    <string name="pick_up">Pick up</string>
+    <string name="expect">Expect</string>
+    <string name="textview2">TextView2</string>
+    <string name="textview3">TextView3</string>
+    <string name="textview1">TextView1</string>
+    <string name="textview">textview</string>
+</resources>

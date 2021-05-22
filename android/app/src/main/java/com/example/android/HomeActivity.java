@@ -22,14 +22,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button manual_button = findViewById(R.id.manual_button);
         Button notification_button = findViewById(R.id.notification_button);
         Button confirmation_button = findViewById(R.id.confirmation_button);
-      Button logout = findViewById(R.id.logout_button);
-
+        Button notify_button = findViewById(R.id.notify_button);//to send notification in a list
+        Button logout = findViewById(R.id.logout_button);
         Button receiver_list_button = findViewById(R.id.receiver_list_button);
+
+
         manual_button.setOnClickListener(this);
         notification_button.setOnClickListener(this);
         confirmation_button.setOnClickListener(this);
         receiver_list_button.setOnClickListener(this);
-      logout.setOnClickListener(this);
+        notify_button.setOnClickListener(this);
+        logout.setOnClickListener(this);
 
     }
 
@@ -54,7 +57,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intentz = new Intent(this, ReceiverListActivity.class);
                 startActivity(intentz);
                 break;
-            
+
+            case R.id.notify_button:
+                Intent intent2 = new Intent(this, NotifyReceiverActivity.class);
+                startActivity(intent2);
+                break;
             case R.id.logout_button:
                 Intent intenty = new Intent(this, LoginActivity.class);
                 startActivity(intenty);
