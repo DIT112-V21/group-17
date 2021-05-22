@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
@@ -7,33 +8,39 @@
 
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/textview4"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="66.6"
         android:gravity="center"
-        android:text="@string/textview1"
+        android:text="@string/textview"
         android:textAlignment="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33.3"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/expect_button"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="60dp"
+            android:layout_weight="66.6"
             android:gravity="center"
-            android:text="@string/textview2" />
+            android:text="@string/expect"
+            android:textAlignment="center"
+            tools:ignore="ButtonStyle,NestedWeights" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <Button
+            android:id="@+id/pickup_button"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="60dp"
+            android:layout_weight="66.6"
             android:gravity="center"
-            android:text="@string/textview3" />
+            android:text="@string/pick_up"
+            android:textAlignment="center"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
 </LinearLayout>

@@ -9,10 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by User on 3/14/2017.
- */
-
 public class ReceiverListAdapter extends ArrayAdapter<Receiver> {
 
     private static final String TAG = "ReceiverListAdapter";
@@ -39,14 +35,10 @@ public class ReceiverListAdapter extends ArrayAdapter<Receiver> {
         String name = getItem(position).getName();
         String ID = getItem(position).getID();
         String address = getItem(position).getAddress();
-        String password=getItem(position).getPassWord();
-
-        //Create the person object with the information
-        Receiver person = new Receiver(name,password,address);
 
        LayoutInflater inflater=LayoutInflater.from(mContext);
        convertView=inflater.inflate(mResource,parent,false);
-       TextView tvName = (TextView) convertView.findViewById(R.id.textView1);
+       TextView tvName = (TextView) convertView.findViewById(R.id.textview);
        TextView tvID = (TextView) convertView.findViewById(R.id.textView2);
        TextView tvAddress = (TextView) convertView.findViewById(R.id.textView3);
 

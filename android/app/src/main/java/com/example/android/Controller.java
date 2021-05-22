@@ -6,7 +6,7 @@ public class Controller {
 
     public static ArrayList<Receiver> receiversList = new ArrayList<Receiver>();
     public static ArrayList<Mailman> mailmenList = new ArrayList<Mailman>();
-    public ArrayList<Delivery> deliveries = new ArrayList<Delivery>();
+    public static ArrayList<Delivery> deliveries = new ArrayList<Delivery>();
 
     public Controller() {
         receiversList = new ArrayList<Receiver>();
@@ -33,18 +33,19 @@ public class Controller {
     }
 
     //add expect message to the mailman's list of messages and creates a delivery
-    public void sendExpectDelivery(Mailman mailman, Receiver receiver) {
-        createDelivery(mailman, receiver);
+    public static void sendExpectDelivery(Mailman mailman, Receiver receiver) {
+        //createDelivery(mailman, receiver);
+        //expect: sent; pickup: sent
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
         Message message = new Message(content, mailman.getName(), receiver.getName());
         receiver.getNotifications().add(message);
     }
 
-    public void sendPickupMessage(Mailman mailman, Receiver receiver, Delivery delivery) {
+    public static void sendPickupMessage(Mailman mailman, Receiver receiver) {
         String content = "Your mail has arrived and waits for you ! please confirm pickup :) ";
         Message message = new Message(content, mailman.getName(), receiver.getName());
         receiver.getNotifications().add(message);
-        delivery.setStatus("Delivered");
+        //delivery.setStatus("Delivered");
     }
 
     public void ConfirmPickupMessage(Mailman mailman, Receiver receiver, Delivery delivery) {
