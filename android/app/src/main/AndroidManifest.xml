@@ -30,8 +30,7 @@
 
         <activity android:name=".BrowseErrorActivity" />
 
-        <activity android:name=".PickupNotificationActivity"></activity>
-
+        <activity android:name=".PickupNotificationActivity"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReceiverActivity" />

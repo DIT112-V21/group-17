@@ -15,7 +15,7 @@ public class Controller {
     }
 
     //add a new mailman
-    public void addMailman(String name, String password) {
+    public static void addMailman(String name, String password) {
         Mailman mailman = new Mailman(name, password);
         mailmenList.add(mailman);
     }
@@ -54,18 +54,36 @@ public class Controller {
         mailman.getNotifications().add(message);
     }
 
-    //************************************************************************
-
-    //Display messages(both mailman and receiver)
-    public void displayListOfMessages(User user) {
-        if (user.getNotifications().isEmpty()) {
-            System.out.println("No messages to show");
-        } else {
-            for (Message message : user.getNotifications()) {
-                System.out.println(message);
+    public Mailman isLoggedIn(String name, String password){
+        for (Mailman mailman:mailmenList){
+            if ((mailman.getName().equals(name)) &&(mailman.getPassWord().equals(password))){
+                return mailman;
             }
         }
+        return null;
     }
+
+
+    public static boolean verifyMailmanCredentials(String name, String password){
+        for (Mailman mailman:mailmenList){
+            if ((mailman.getName().equals(name)) &&(mailman.getPassWord().equals(password))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verifyReceiverCredentials(String name, String password){
+        for (Receiver receiver:receiversList){
+            if ((receiver.getName().equals(name)) &&(receiver.getPassWord().equals(password))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    //************************************************************************
 
     // Display the list of deliveries (history)
     public void displayListOfDeliveries() {
