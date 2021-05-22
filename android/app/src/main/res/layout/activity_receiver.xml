@@ -49,20 +49,8 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/error_deliver_button"
-        android:layout_below="@+id/confirm_notification_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:backgroundTint="#000033"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Error, not here"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <Button
         android:id="@+id/logout_button"
-        android:layout_below="@+id/error_deliver_button"
+        android:layout_below="@+id/confirm_notification_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
