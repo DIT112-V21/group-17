@@ -14,7 +14,7 @@ public class ReceiverActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiver);
 
-        Button confirm = findViewById(R.id.confirm_notification_button);
+        Button confirm = findViewById(R.id.receiver_messages);
         Button logout = findViewById(R.id.logout_button);
 
         confirm.setOnClickListener(this);
@@ -24,7 +24,7 @@ public class ReceiverActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.confirm_notification_button:
+            case R.id.receiver_messages:
                 break;
 
             case R.id.logout_button:
