@@ -5,18 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.Camera;
 import android.graphics.Color;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -220,7 +214,7 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public void home() {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, MailmanHomeActivity.class);
         startActivity(intent);
     }
 

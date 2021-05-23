@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ReceiverActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReceiverHomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "ReceiverHome";
     @Override
@@ -33,6 +33,7 @@ public class ReceiverActivity extends AppCompatActivity implements View.OnClickL
             break;
 
             case R.id.logout_button:
+                Controller.receiverLogOut();
                 Intent intent2 = new Intent(this, LoginActivity.class);
                 startActivity(intent2);
                 break;

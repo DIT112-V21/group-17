@@ -62,6 +62,20 @@ public class Controller {
         mailman.getNotifications().add(message);
     }
 
+    public static void mailmanLogOut(){
+        for (Mailman mailman:mailmenList){
+            if (mailman.getLoginStatus().equals("logged_in")){
+                mailman.setLoginStatus("logged_out");
+            }
+        }
+    }
+    public static void receiverLogOut(){
+        for (Receiver receiver:receiversList){
+            if (receiver.getLoginStatus().equals("logged_in")){
+                receiver.setLoginStatus("logged_out");
+            }
+        }
+    }
 
 
     public static boolean verifyMailmanCredentials(String name, String password){

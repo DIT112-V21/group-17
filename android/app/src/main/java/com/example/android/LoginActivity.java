@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 boolean verify=Controller.verifyMailmanCredentials(username, password);
                 if(verify==true) {
                     add_information();
-                    Intent intent = new Intent(this, HomeActivity.class);
+                    Intent intent = new Intent(this, MailmanHomeActivity.class);
                     startActivity(intent);
                 }
                 else{
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 boolean verify2=Controller.verifyReceiverCredentials(username, password);
                 if(verify2==true) {
                     add_information();
-                    Intent intentq = new Intent(this, ReceiverActivity.class);
+                    Intent intentq = new Intent(this, ReceiverHomeActivity.class);
                     startActivity(intentq);
                 }
                 else{
