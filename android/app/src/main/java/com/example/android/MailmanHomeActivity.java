@@ -10,9 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class MailmanHomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "Home";
+    private static final String TAG = "MailmanHome";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent3);
                 break;
             case R.id.logout_button:
+                Controller.mailmanLogOut();
                 Intent intenty = new Intent(this, LoginActivity.class);
                 startActivity(intenty);
                 break;

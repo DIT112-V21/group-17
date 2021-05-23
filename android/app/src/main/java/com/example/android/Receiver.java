@@ -10,6 +10,7 @@ public class Receiver {
     private String userName;
     private String passWord;
     private String address;
+    private String loginStatus;
 
     private ArrayList<Message> notifications;
 
@@ -23,6 +24,7 @@ public class Receiver {
         this.passWord=passWord;
         this.address=address;
         this.notifications= new ArrayList<Message>();
+        this.loginStatus="logged_Out";
     }
 
     public String getID() {
@@ -54,6 +56,13 @@ public class Receiver {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getLoginStatus() {
+        return loginStatus;
+    }
+
+    public void setLoginStatus(String loginStatus) {
+        this.loginStatus = loginStatus;
     }
 
     @Override

@@ -22,16 +22,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".MailmanMessageListActivity"></activity>
+        <activity android:name=".ReceiverMessageListActivity" />
+        <activity android:name=".MailmanMessageListActivity" />
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
         <activity android:name=".BrowseErrorActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".MailmanHomeActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ReceiverActivity" />
+        <activity android:name=".ReceiverHomeActivity" />
         <activity android:name=".ManualActivity" />
         <activity android:name=".ReceiverListActivity" />
         <activity android:name=".NotifyReceiverActivity" />

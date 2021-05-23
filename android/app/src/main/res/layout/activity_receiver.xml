@@ -36,7 +36,7 @@
 
 
     <Button
-        android:id="@+id/receiver_messages"
+        android:id="@+id/receiver_message_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/below_header"
@@ -49,7 +49,7 @@
 
     <Button
         android:id="@+id/logout_button"
-        android:layout_below="@+id/receiver_messages"
+        android:layout_below="@+id/receiver_message_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
