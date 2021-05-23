@@ -69,8 +69,20 @@
         android:textSize="20sp"
         android:textStyle="bold" />
     <Button
-        android:id="@+id/notify_button"
+        android:id="@+id/mailman_message_list_button"
         android:layout_below="@+id/receiver_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:backgroundTint="#000033"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Check messages"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/notify_button"
+        android:layout_below="@+id/mailman_message_list_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

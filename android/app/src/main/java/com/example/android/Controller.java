@@ -19,6 +19,13 @@ public class Controller {
         Mailman mailman = new Mailman(name, password);
         mailmenList.add(mailman);
     }
+    public static void addMailmanMessage(String name, String password) {
+        Mailman mailman = new Mailman(name, password);
+        mailmenList.add(mailman);
+        Message message=new Message("Hi","Leila",mailman.getName());
+        mailman.getNotifications().add(message);
+    }
+
 
     //add a new receiver
     public static void addReceiver(String name, String password, String address) {
@@ -55,23 +62,26 @@ public class Controller {
         mailman.getNotifications().add(message);
     }
 
-    public Mailman isLoggedIn(String name, String password){
-        for (Mailman mailman:mailmenList){
-            if ((mailman.getName().equals(name)) &&(mailman.getPassWord().equals(password))){
-                return mailman;
-            }
-        }
-        return null;
-    }
 
 
     public static boolean verifyMailmanCredentials(String name, String password){
         for (Mailman mailman:mailmenList){
             if ((mailman.getName().equals(name)) &&(mailman.getPassWord().equals(password))){
+                mailman.setLoginStatus("logged_in");
                 return true;
             }
         }
         return false;
+    }
+
+    public static ArrayList<Message> mailmanMessageList(){
+        for (Mailman mailman:mailmenList) {
+            if (mailman.getLoginStatus().equals("logged_in")){
+                return mailman.getNotifications();
+            }
+
+        }
+        return null;
     }
 
     public boolean verifyReceiverCredentials(String name, String password){

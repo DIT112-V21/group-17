@@ -8,6 +8,7 @@ public class Mailman {
     private String ID;
     private String userName;
     private String passWord;
+    private String loginStatus;
 
     private ArrayList<Message> notifications;
 
@@ -19,6 +20,7 @@ public class Mailman {
         this.userName=userName;
         this.passWord=passWord;
         this.notifications= new ArrayList<Message>();
+        this.loginStatus="logged_Out";
     }
 
     public String getID() {
@@ -40,6 +42,15 @@ public class Mailman {
 
         return passWord;
     }
+
+    public String getLoginStatus() {
+        return loginStatus;
+    }
+
+    public void setLoginStatus(String loginStatus) {
+        this.loginStatus = loginStatus;
+    }
+
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
