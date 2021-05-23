@@ -40,15 +40,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     startActivity(intent);
                 }
                 else{
-                    final String wrongpassword = "Wrong password! Try again!";
-                    Log.w(TAG, wrongpassword);
-                    Toast.makeText(getApplicationContext(), wrongpassword, Toast.LENGTH_SHORT).show();
+                    final String wrongCredM = "Wrong credentials to login as a mailman!\n Try again!";
+                    Log.w(TAG, wrongCredM);
+                    Toast.makeText(getApplicationContext(), wrongCredM, Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.receiver_button:
-                add_information();
-                Intent intentq = new Intent(this, ReceiverActivity.class);
-                startActivity(intentq);
+                boolean verify2=Controller.verifyReceiverCredentials(username, password);
+                if(verify2==true) {
+                    add_information();
+                    Intent intentq = new Intent(this, ReceiverActivity.class);
+                    startActivity(intentq);
+                }
+                else{
+                    final String wrongCredR = "Wrong credentials to login as receiver!\n Try again!";
+                    Log.w(TAG, wrongCredR);
+                    Toast.makeText(getApplicationContext(), wrongCredR, Toast.LENGTH_SHORT).show();
+                }
+
                 break;
         }
 

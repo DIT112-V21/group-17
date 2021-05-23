@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".MailmanMessageListActivity"></activity>
+        <activity android:name=".ReceiverMessageListActivity" />
+        <activity android:name=".MailmanMessageListActivity" />
 
         <meta-data
             android:name="com.google.android.actions"

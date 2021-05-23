@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "Home";
+    private static final String TAG = "MailmanHome";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

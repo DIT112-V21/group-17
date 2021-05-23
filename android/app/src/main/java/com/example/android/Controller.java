@@ -84,9 +84,20 @@ public class Controller {
         return null;
     }
 
-    public boolean verifyReceiverCredentials(String name, String password){
+    public static ArrayList<Message> receiverMessageList(){
+        for (Receiver receiver: receiversList) {
+            if (receiver.getLoginStatus().equals("logged_in")){
+                return receiver.getNotifications();
+            }
+
+        }
+        return null;
+    }
+
+    public static boolean verifyReceiverCredentials(String name, String password){
         for (Receiver receiver:receiversList){
             if ((receiver.getName().equals(name)) &&(receiver.getPassWord().equals(password))){
+                receiver.setLoginStatus("logged_in");
                 return true;
             }
         }
