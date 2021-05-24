@@ -40,23 +40,26 @@ public class Controller {
     public static void sendExpectDelivery(Mailman mailman, Receiver receiver) {
         //createDelivery(mailman, receiver);
         //expect: sent; pickup: sent
+        String title="Expect";
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
-        Message message = new Message(content, mailman.getID(),mailman.getName(), receiver.getName());
+        Message message = new Message(title,content, mailman.getID(),mailman.getName(), receiver.getName());
         receiver.getNotifications().add(message);
     }
 
     public static void sendPickupMessage(Mailman mailman, Receiver receiver) {
-        String content = "Your mail has arrived and waits for you ! please confirm pickup :) ";
-        Message message = new Message(content, mailman.getID(),mailman.getName(), receiver.getName());
+        String title="Confirm pick-up";
+        String content = "Your mail has arrived and waits for you ! please confirm pick-up :) ";
+        Message message = new Message(title,content, mailman.getID(),mailman.getName(), receiver.getName());
         receiver.getNotifications().add(message);
         //delivery.setStatus("Delivered");
     }
 
     public static void confirmPickupMessage(Mailman mailman, Receiver receiver) {
         //(Mailman mailman, Receiver receiver, Delivery delivery)
-        String content = "Pickup Confirmed!";
+        String title="Confirmed pick-up";
+        String content = "Pickup Confirmed by "+receiver.getName();
         //delivery.setStatus("Picked-up");
-        Message message = new Message(content, receiver.getID(),receiver.getName(),mailman.getName());
+        Message message = new Message(title,content, receiver.getID(),receiver.getName(),mailman.getName());
         mailman.getNotifications().add(message);
     }
 

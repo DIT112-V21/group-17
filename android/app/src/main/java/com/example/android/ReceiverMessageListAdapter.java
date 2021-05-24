@@ -53,23 +53,32 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
         Button confirm = (Button) convertView.findViewById(R.id.confirmbutton);
 
 
-        tvMessage.setText(message.getContent());
+        tvMessage.setText(message.getTitle());
 
-       confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String confirm_sent = "pick-up confirmation message sent to "+mailmanName;
+        if(message.getTitle().equals("Confirm pick-up")){
+
+            confirm.setVisibility(Button.VISIBLE);
+            confirm.setEnabled(true);
+
+            confirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final String confirm_sent = "pick-up confirmation message sent to "+mailmanName;
+
+                    Controller.confirmPickupMessage(mailman,currentReceiver);
+
+                    Log.w(TAG,confirm_sent );
+                    Toast.makeText(mContext.getApplicationContext(), confirm_sent, Toast.LENGTH_SHORT).show();
 
 
-                Log.w(TAG,confirm_sent );
-                Toast.makeText(mContext.getApplicationContext(), confirm_sent, Toast.LENGTH_SHORT).show();
+                    confirm.setEnabled(false);
 
-                Controller.confirmPickupMessage(mailman,currentReceiver);
+                }
+            });
 
-            }
-        });
+        }
 
 
-        return convertView;
+       return convertView;
     }
 }

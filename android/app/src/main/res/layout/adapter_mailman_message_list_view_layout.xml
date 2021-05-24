@@ -14,7 +14,7 @@
         android:layout_weight="66.6"
         android:gravity="center"
         android:text="mailman_message"
-        android:textAlignment="center" />
+        android:textAlignment="textStart" />
 
 
 

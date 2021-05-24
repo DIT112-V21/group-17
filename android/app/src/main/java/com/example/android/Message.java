@@ -4,12 +4,13 @@ import java.util.UUID;
 
 public class Message {
     private String ID;
+    private String title;
     private String content;
     private String senderID;
     private String sender;
     private String receiver;
 
-    public Message(String content, String receiverID, String sender, String receiver) {
+    public Message(String title,String content, String receiverID, String sender, String receiver) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
@@ -18,6 +19,7 @@ public class Message {
         this.senderID=senderID;
         this.sender=sender;
         this.receiver=receiver;
+        this.title=title;
     }
 
     public String getID() {
@@ -49,6 +51,10 @@ public class Message {
         this.content = content;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
 
 
     public String getSenderID() {
@@ -63,6 +69,7 @@ public class Message {
     public String toString() {
         return "Message{" +
                 "ID='" + ID + '\'' +
+                ", content='" + title + '\''+
                 ", content='" + content + '\'' +
                 ", sender='" + sender + '\'' +
                 ", receiver='" + receiver + '\'' +
