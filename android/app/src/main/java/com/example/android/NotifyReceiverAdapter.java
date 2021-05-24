@@ -64,6 +64,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
             @Override
             public void onClick(View v) {
                 final String pickup_sent = "pick-up delivery message sent to "+name;
+                Controller.sendPickupMessage(mailman,receiver);
                 Log.w(TAG,pickup_sent );
                 Toast.makeText(mContext.getApplicationContext(), pickup_sent, Toast.LENGTH_SHORT).show();
 
