@@ -64,14 +64,12 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
                 @Override
                 public void onClick(View v) {
                     final String confirm_sent = "pick-up confirmation message sent to "+mailmanName;
-
                     Controller.confirmPickupMessage(mailman,currentReceiver);
-
                     Log.w(TAG,confirm_sent );
                     Toast.makeText(mContext.getApplicationContext(), confirm_sent, Toast.LENGTH_SHORT).show();
 
 
-                    confirm.setEnabled(false);
+                    confirm.setEnabled(true);
 
                 }
             });
