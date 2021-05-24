@@ -7,19 +7,21 @@ public class Message {
     private String title;
     private String content;
     private String senderID;
-    private String sender;
-    private String receiver;
+    private String senderName;
+    private String receiverName;
+    private String messageStatus;
 
-    public Message(String title,String content, String receiverID, String sender, String receiver) {
+    public Message(String title, String content, String senderID, String senderName, String receiverName) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
 
         this.content = content;
         this.senderID=senderID;
-        this.sender=sender;
-        this.receiver=receiver;
+        this.senderName = senderName;
+        this.receiverName = receiverName;
         this.title=title;
+        this.messageStatus="";
     }
 
     public String getID() {
@@ -30,20 +32,20 @@ public class Message {
         return content;
     }
 
-    public String getSender() {
-        return sender;
+    public String getSenderName() {
+        return senderName;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 
-    public String getReceiver() {
-        return receiver;
+    public String getReceiverName() {
+        return receiverName;
     }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
     }
 
 
@@ -65,14 +67,25 @@ public class Message {
         this.senderID = senderID;
     }
 
+
+
+    public String getMessageStatus() {
+        return messageStatus;
+    }
+
+    public void setMessageStatus(String messageStatus) {
+        this.messageStatus = messageStatus;
+    }
+
+
     @Override
     public String toString() {
         return "Message{" +
                 "ID='" + ID + '\'' +
                 ", content='" + title + '\''+
                 ", content='" + content + '\'' +
-                ", sender='" + sender + '\'' +
-                ", receiver='" + receiver + '\'' +
+                ", sender='" + senderName + '\'' +
+                ", receiver='" + receiverName + '\'' +
                 '}';
     }
 }

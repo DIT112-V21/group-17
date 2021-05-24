@@ -41,7 +41,7 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
         //get the persons information
         Message message=messages.get(position);
         //String mailmanId=messages.get(position).getSenderID();
-        String mailmanName=messages.get(position).getSender();
+        String mailmanName=messages.get(position).getSenderName();
         Receiver currentReceiver = Controller.getLoggedInReceiver();
         //Mailman mailman=Controller.mailmanFromID(messages.get(position).getSenderID());
 
@@ -56,26 +56,26 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
         tvMessage.setText(message.getTitle());
 
         if(message.getTitle().equals("Confirm pick-up")){
-
             confirm.setVisibility(Button.VISIBLE);
-            confirm.setEnabled(true);
+            if(!message.getMessageStatus().equals("sent")){
+                confirm.setEnabled(true);
 
-            confirm.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final String confirm_sent = "pick-up confirmation message sent to "+mailmanName;
-                    Controller.confirmPickupMessage(mailman,currentReceiver);
-                    Log.w(TAG,confirm_sent );
-                    Toast.makeText(mContext.getApplicationContext(), confirm_sent, Toast.LENGTH_SHORT).show();
+                confirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final String confirm_sent = "pick-up confirmation message sent to "+mailmanName;
+                        Controller.confirmPickupMessage(mailman,currentReceiver);
+                        Log.w(TAG,confirm_sent );
+                        Toast.makeText(mContext.getApplicationContext(), confirm_sent, Toast.LENGTH_SHORT).show();
 
 
-                    confirm.setEnabled(true);
-
-                }
-            });
-
+                        confirm.setEnabled(false);
+                        message.setMessageStatus("sent");
+                        
+                    }
+                });
+            }
         }
-
 
        return convertView;
     }

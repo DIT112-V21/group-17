@@ -43,7 +43,7 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
         LayoutInflater inflater=LayoutInflater.from(mContext);
         convertView=inflater.inflate(mResource,parent,false);
         TextView tvMessage = (TextView) convertView.findViewById(R.id.tv_mailman_message);
-        String message_title=message.getSender()+" "+message.getTitle();
+        String message_title=message.getSenderName()+" "+message.getTitle();
 
 
         tvMessage.setText(message_title);
