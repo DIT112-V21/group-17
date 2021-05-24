@@ -68,7 +68,6 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
                 Log.w(TAG,pickup_sent );
                 Toast.makeText(mContext.getApplicationContext(), pickup_sent, Toast.LENGTH_SHORT).show();
 
-                Controller.sendPickupMessage(mailman,receiver);
             }
         });
 
