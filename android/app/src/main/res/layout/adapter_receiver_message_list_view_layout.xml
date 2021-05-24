@@ -9,12 +9,32 @@
 
     <TextView
         android:id="@+id/tv_receiver_message"
-        android:layout_width="match_parent"
+        android:layout_width="815dp"
         android:layout_height="60dp"
         android:layout_weight="66.6"
         android:gravity="center"
         android:text="receiver_message"
-        android:textAlignment="center" />
+        android:textAlignment="viewStart" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="33.3"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/confirmbutton"
+            android:layout_width="447dp"
+            android:layout_height="60dp"
+            android:layout_weight="66.6"
+            android:gravity="center"
+            android:text="confirm"
+            android:textAlignment="center"
+            android:visibility="invisible"
+            android:enabled="false"
+            tools:ignore="ButtonStyle,NestedWeights" />
+
+
+    </LinearLayout>
 
 
 

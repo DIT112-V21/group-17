@@ -29,10 +29,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        username = usernameInput.getText().toString();
+        /*username = usernameInput.getText().toString();
         password = passwordInput.getText().toString();
+        */
+
         switch (v.getId()){
             case R.id.mailman_button:
+                username = usernameInput.getText().toString();
+                password = passwordInput.getText().toString();
                 boolean verify=Controller.verifyMailmanCredentials(username, password);
                 if(verify==true) {
                     add_information();
@@ -46,6 +50,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.receiver_button:
+                username = usernameInput.getText().toString();
+                password = passwordInput.getText().toString();
                 boolean verify2=Controller.verifyReceiverCredentials(username, password);
                 if(verify2==true) {
                     add_information();

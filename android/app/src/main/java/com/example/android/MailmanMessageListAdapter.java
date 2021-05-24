@@ -1,6 +1,7 @@
 package com.example.android;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,16 +34,19 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //get the persons information
+
+        Log.w(TAG,"message view started" );
+
         Message message=messages.get(position);
 
 
         LayoutInflater inflater=LayoutInflater.from(mContext);
         convertView=inflater.inflate(mResource,parent,false);
         TextView tvMessage = (TextView) convertView.findViewById(R.id.tv_mailman_message);
+        String message_title=message.getSenderName()+" "+message.getTitle();
 
 
-        tvMessage.setText(message.getContent());
+        tvMessage.setText(message_title);
 
 
 

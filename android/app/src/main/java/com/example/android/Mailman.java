@@ -24,7 +24,6 @@ public class Mailman {
     }
 
     public String getID() {
-
         return ID;
     }
 
