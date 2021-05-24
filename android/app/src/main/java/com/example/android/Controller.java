@@ -125,6 +125,7 @@ public class Controller {
         return false;
     }
 
+    /*
     public static Mailman searchMailManById(String mailmanID){
         for (Mailman mailman:mailmenList) {
             if (mailman.getLoginStatus().equals(mailmanID)){
@@ -133,6 +134,34 @@ public class Controller {
         }
         return null;
     }
+    */
+
+    // 17. fetch mailman by ID(if found returns index, else -1)
+    public static int fetchMailmanByIDInAList(String mailmanID) {
+        //-2: empty list, -1: invalid ID, i: index
+        if (mailmenList.isEmpty()) {
+            return -2;
+        } else {
+            for (int i = 0; i < mailmenList.size(); i++) {
+                if (mailmanID.equals(mailmenList.get(i).getID())) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    // mailman object (project/task)
+    public static Mailman mailmanFromID(String mailmanID) {
+        int indexOftask=fetchMailmanByIDInAList(mailmanID);
+        if (indexOftask>=0) {
+            return mailmenList.get(indexOftask);
+        }
+        else {
+            return null;
+        }
+    }
+
 
 
     //************************************************************************

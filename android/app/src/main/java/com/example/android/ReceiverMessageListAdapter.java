@@ -18,6 +18,7 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
 
     private Context mContext;
     private int mResource;
+    private Mailman mailman=Controller.mailmenList.get(0);
 
 
     /**
@@ -42,7 +43,7 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
         //String mailmanId=messages.get(position).getSenderID();
         String mailmanName=messages.get(position).getSender();
         Receiver currentReceiver = Controller.getLoggedInReceiver();
-        Mailman mailman=Controller.searchMailManById(messages.get(position).getSenderID());
+        //Mailman mailman=Controller.mailmanFromID(messages.get(position).getSenderID());
 
 
 
