@@ -19,12 +19,14 @@ public class Controller {
         Mailman mailman = new Mailman(name, password);
         mailmenList.add(mailman);
     }
+    /* // test if the mailman receives messages
     public static void addMailmanMessage(String name, String password) {
         Mailman mailman = new Mailman(name, password);
         mailmenList.add(mailman);
-        Message message=new Message("Hi","Leila",mailman.getName());
+        Message message=new Message("Hi","Leila",mailman.getID(),mailman.getName());
         mailman.getNotifications().add(message);
     }
+    */
 
 
     //add a new receiver
@@ -33,46 +35,42 @@ public class Controller {
         receiversList.add(receiver);
     }
 
-    // create a delivery: ID confirmation(yes:no)
-    public void createDelivery(Mailman mailman, Receiver receiver) {
-        Delivery delivery = new Delivery(mailman.getID(), mailman.getName(), receiver.getID(), receiver.getName());
-        deliveries.add(delivery);
-    }
 
     //add expect message to the mailman's list of messages and creates a delivery
     public static void sendExpectDelivery(Mailman mailman, Receiver receiver) {
         //createDelivery(mailman, receiver);
         //expect: sent; pickup: sent
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
-        Message message = new Message(content, mailman.getName(), receiver.getName());
+        Message message = new Message(content, mailman.getID(),mailman.getName(), receiver.getName());
         receiver.getNotifications().add(message);
     }
 
     public static void sendPickupMessage(Mailman mailman, Receiver receiver) {
         String content = "Your mail has arrived and waits for you ! please confirm pickup :) ";
-        Message message = new Message(content, mailman.getName(), receiver.getName());
+        Message message = new Message(content, mailman.getID(),mailman.getName(), receiver.getName());
         receiver.getNotifications().add(message);
         //delivery.setStatus("Delivered");
     }
 
-    public void ConfirmPickupMessage(Mailman mailman, Receiver receiver, Delivery delivery) {
+    public static void confirmPickupMessage(Mailman mailman, Receiver receiver) {
+        //(Mailman mailman, Receiver receiver, Delivery delivery)
         String content = "Pickup Confirmed!";
-        delivery.setStatus("Picked-up");
-        Message message = new Message(content, mailman.getName(), receiver.getName());
+        //delivery.setStatus("Picked-up");
+        Message message = new Message(content, receiver.getID(),receiver.getName(),mailman.getName());
         mailman.getNotifications().add(message);
     }
 
     public static void mailmanLogOut(){
         for (Mailman mailman:mailmenList){
             if (mailman.getLoginStatus().equals("logged_in")){
-                mailman.setLoginStatus("logged_out");
+                mailman.setLoginStatus("logged_Out");
             }
         }
     }
     public static void receiverLogOut(){
         for (Receiver receiver:receiversList){
             if (receiver.getLoginStatus().equals("logged_in")){
-                receiver.setLoginStatus("logged_out");
+                receiver.setLoginStatus("logged_Out");
             }
         }
     }
@@ -108,6 +106,15 @@ public class Controller {
         return null;
     }
 
+    public static Receiver getLoggedInReceiver(){
+        for (Receiver receiver: receiversList) {
+            if (receiver.getLoginStatus().equals("logged_in")){
+                return receiver;
+            }
+        }
+        return null;
+    }
+
     public static boolean verifyReceiverCredentials(String name, String password){
         for (Receiver receiver:receiversList){
             if ((receiver.getName().equals(name)) &&(receiver.getPassWord().equals(password))){
@@ -116,6 +123,15 @@ public class Controller {
             }
         }
         return false;
+    }
+
+    public static Mailman searchMailManById(String mailmanID){
+        for (Mailman mailman:mailmenList) {
+            if (mailman.getLoginStatus().equals(mailmanID)){
+                return mailman;
+            }
+        }
+        return null;
     }
 
 
@@ -130,6 +146,12 @@ public class Controller {
                 System.out.println(delivery);
             }
         }
+    }
+
+    // create a delivery: ID confirmation(yes:no)
+    public void createDelivery(Mailman mailman, Receiver receiver) {
+        Delivery delivery = new Delivery(mailman.getID(), mailman.getName(), receiver.getID(), receiver.getName());
+        deliveries.add(delivery);
     }
 
 }

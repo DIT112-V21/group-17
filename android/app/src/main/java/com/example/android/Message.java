@@ -5,16 +5,19 @@ import java.util.UUID;
 public class Message {
     private String ID;
     private String content;
+    private String senderID;
     private String sender;
     private String receiver;
 
-
-    public Message(String content,String sender,String receiver) {
+    public Message(String content, String receiverID, String sender, String receiver) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
 
         this.content = content;
+        this.senderID=senderID;
+        this.sender=sender;
+        this.receiver=receiver;
     }
 
     public String getID() {
@@ -44,6 +47,16 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+
+
+    public String getSenderID() {
+        return senderID;
+    }
+
+    public void setSenderID(String senderID) {
+        this.senderID = senderID;
     }
 
     @Override

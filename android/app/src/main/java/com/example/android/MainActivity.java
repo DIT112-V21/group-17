@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Controller.addReceiver("Receiver_1","123"," room 17");
         Controller.addReceiver("Receiver_1","123"," room 18");
         Controller.addMailman("mailman","123");
-        Controller.addMailmanMessage("Maab","348");
 
 
         manualControl.setOnClickListener(this);
