@@ -74,4 +74,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Log.d("username", username);
         Log.d("password", password);
     }
+
+    @Override
+    public void onBackPressed() {
+        final String noBack = "Exiting Smart DeliRover";
+        Log.w(TAG, noBack);
+        Toast.makeText(getApplicationContext(), noBack, Toast.LENGTH_SHORT).show();
+       // finish();
+        //System.exit(0);
+        return;
+    }
 }
