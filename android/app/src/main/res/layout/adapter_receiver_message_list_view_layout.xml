@@ -6,32 +6,68 @@
     android:orientation="horizontal"
     android:weightSum="100">
 
-
     <TextView
         android:id="@+id/tv_receiver_message"
-        android:layout_width="815dp"
+        android:layout_width="600dp"
         android:layout_height="60dp"
         android:layout_weight="66.6"
         android:gravity="center"
         android:text="receiver_message"
-        android:textAlignment="viewStart" />
+        android:textAlignment="viewStart"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="33.3"
         android:orientation="horizontal">
 
+
         <Button
             android:id="@+id/confirmbutton"
-            android:layout_width="447dp"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_weight="33.3"
+            android:backgroundTint="#F8E00A"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="confirm pick-up"
+            android:textAlignment="center"
+            android:textColor="#B2090909"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="ButtonStyle,NestedWeights" />
+
+        <Button
+            android:id="@+id/available"
+            android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_weight="66.6"
+            android:backgroundTint="#4CAF50"
+            android:fontFamily="casual"
             android:gravity="center"
-            android:text="confirm"
+            android:text="available"
             android:textAlignment="center"
-            android:visibility="invisible"
-            android:enabled="false"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone"
             tools:ignore="ButtonStyle,NestedWeights" />
+
+        <Button
+            android:id="@+id/not_available"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_weight="66.6"
+            android:backgroundTint="#F44336"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Not available"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="ButtonStyle" />
 
 
     </LinearLayout>
