@@ -51,7 +51,9 @@
             android:textAlignment="center"
             android:textSize="10sp"
             android:textStyle="bold"
+            android:enabled="false"
             android:visibility="gone"
+
             tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
@@ -67,6 +69,7 @@
             android:textSize="10sp"
             android:textStyle="bold"
             android:visibility="gone"
+            android:enabled="false"
             tools:ignore="ButtonStyle" />
 
 

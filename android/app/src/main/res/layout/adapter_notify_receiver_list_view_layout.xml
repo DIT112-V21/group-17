@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/textview4"
-        android:layout_width="match_parent"
+        android:layout_width="808dp"
         android:layout_height="60dp"
         android:layout_weight="66.6"
         android:gravity="center"
@@ -28,17 +28,7 @@
             android:layout_height="60dp"
             android:layout_weight="66.6"
             android:gravity="center"
-            android:text="@string/expect"
-            android:textAlignment="center"
-            tools:ignore="ButtonStyle,NestedWeights" />
-
-        <Button
-            android:id="@+id/pickup_button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="66.6"
-            android:gravity="center"
-            android:text="@string/pick_up"
+            android:text="Expect"
             android:textAlignment="center"
             tools:ignore="ButtonStyle" />
     </LinearLayout>

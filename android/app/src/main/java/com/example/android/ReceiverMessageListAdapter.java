@@ -20,7 +20,7 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
 
     private Context mContext;
     private int mResource;
-    private Mailman mailman=Controller.mailmenList.get(0);
+    //private Mailman mailman=Controller.mailmenList.get(0);
 
 
     /**
@@ -42,10 +42,10 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
     public View getView(int position, View convertView, ViewGroup parent) {
         //get the persons information
         Message message=messages.get(position);
-        //String mailmanId=messages.get(position).getSenderID();
+        String mailmanId=messages.get(position).getSenderID();
         String mailmanName=messages.get(position).getSenderName();
         Receiver currentReceiver = Controller.getLoggedInReceiver();
-        //Mailman mailman=Controller.mailmanFromID(messages.get(position).getSenderID());
+        Mailman mailman=Controller.mailmanFromID(messages.get(position).getSenderID());
 
 
 

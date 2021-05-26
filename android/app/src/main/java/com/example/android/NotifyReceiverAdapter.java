@@ -44,7 +44,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
         convertView=inflater.inflate(mResource,parent,false);
         TextView tvName = (TextView) convertView.findViewById(R.id.textview4);
         Button expect = (Button) convertView.findViewById(R.id.expect_button);
-        Button pickup = (Button) convertView.findViewById(R.id.pickup_button);
+
 
         tvName.setText(name);
 
@@ -60,16 +60,6 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
             }
         });
 
-        pickup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String pickup_sent = "pick-up delivery message sent to "+name;
-                Controller.sendPickupMessage(mailman,receiver);
-                Log.w(TAG,pickup_sent );
-                Toast.makeText(mContext.getApplicationContext(), pickup_sent, Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
 

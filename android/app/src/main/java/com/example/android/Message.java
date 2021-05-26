@@ -8,19 +8,20 @@ public class Message {
     private String content;
     private String senderID;
     private String senderName;
-    private String receiverName;
+    //private String receiverName;
     private String messageStatus;
 
-    public Message(String title, String content, String senderID, String senderName, String receiverName) {
+    public Message(String title, String content, String senderID, String senderName) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
 
+        this.title=title;
         this.content = content;
         this.senderID=senderID;
         this.senderName = senderName;
-        this.receiverName = receiverName;
-        this.title=title;
+       // this.receiverName = receiverName;
+
         this.messageStatus="";
     }
 
@@ -40,13 +41,11 @@ public class Message {
         this.senderName = senderName;
     }
 
-    public String getReceiverName() {
-        return receiverName;
-    }
+    //public String getReceiverName() {return receiverName;}
 
-    public void setReceiverName(String receiverName) {
+   /* public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
-    }
+    }*/
 
 
     public void setContent(String content) {
@@ -85,7 +84,7 @@ public class Message {
                 ", content='" + title + '\''+
                 ", content='" + content + '\'' +
                 ", sender='" + senderName + '\'' +
-                ", receiver='" + receiverName + '\'' +
+           //     ", receiver='" + receiverName + '\'' +
                 '}';
     }
 }
