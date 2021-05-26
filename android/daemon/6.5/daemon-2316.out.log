@@ -5684,6 +5684,7 @@ BUILD SUCCESSFUL in 12s
 2021-05-26T00:53:16.016+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
 2021-05-26T00:53:16.017+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
 2021-05-26T00:53:16.019+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+<<<<<<< HEAD
 2021-05-26T00:53:26.004+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire shared lock on daemon addresses registry.
 2021-05-26T00:53:26.005+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
 2021-05-26T00:53:26.005+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
@@ -9558,3 +9559,5 @@ BUILD SUCCESSFUL in 20s
 2021-05-26T01:58:16.191+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
 Daemon vm is shutting down... The daemon has exited normally or was terminated in response to a user interrupt.
 2021-05-26T01:58:16.208+0200 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+=======
+>>>>>>> b78fda94f2866bfd387bc8356728a2386523d1b5

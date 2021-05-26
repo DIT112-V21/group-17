@@ -32,6 +32,7 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
 
 
 
+
     /**
      * Default constructor for the PersonListAdapter
      * @param context
