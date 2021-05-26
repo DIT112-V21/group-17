@@ -19,17 +19,7 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
 
     private Context mContext;
     private int mResource;
-    private Mailman mailman=Controller.mailmenList.get(0);
-
-
-    public static int getPosition(){
-        return position;
-    }
-
-    public static void setPosition(int position){
-        position=position;
-    }
-
+   // private Mailman mailman=Controller.mailmenList.get(0);
 
 
 
@@ -54,7 +44,8 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
 
         Message message=messages.get(position);
         String name = getItem(position).getSenderName();
-        MailmanMessageListAdapter.setPosition(position);
+        String senderID = message.getSenderID();
+        String mailmanID=Controller.getLoggedInMailmanID();
 
 
         LayoutInflater inflater=LayoutInflater.from(mContext);
@@ -76,14 +67,14 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
                 pickup.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int position = MailmanMessageListAdapter.getPosition();
-                        String receiverID = message.getSenderID();
+                        //int position = MailmanMessageListAdapter.getPosition();
+                        //String receiverID = message.getSenderID();
 
-                        Message message = messages.get(position);
+                        //Message message = messages.get(position);
                         //Receiver receiver=Controller.searchReceiverById(message.getSenderID());
                         //System.out.println("\nhereeeeeeeeeeeeeeeeeeee"+receiver);
                         final String pickup_sent = "pick-up delivery message sent to " + name;
-                        Controller.sendPickupMessage(mailman, receiverID);
+                        Controller.sendPickupMessage(mailmanID, senderID);
 
                         pickup.setEnabled(false);
                         message.setMessageStatus("sent");

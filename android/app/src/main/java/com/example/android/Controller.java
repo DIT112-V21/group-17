@@ -46,15 +46,14 @@ public class Controller {
         receiver.getNotifications().add(message);
     }
 
-    public static void sendPickupMessage(Mailman mailman, String receiverID) {
+    public static void sendPickupMessage(String mailmanID, String receiverID) {
         String title="Confirm pick-up";
         String content = "Your mail has arrived and waits for you ! please confirm pick-up :) ";
         int receiverPosition=fetchReceiverByIDInAList(receiverID);
-        System.out.println(mailman.getID());
-        System.out.println(mailman.getName());
-//        System.out.println(receiver.getName());
+        int mailmanPosition=fetchMailmanByIDInAList(mailmanID);
+        String mailmanName=mailmenList.get(mailmanPosition).getName();
 
-        Message message = new Message(title,content, mailman.getID(),mailman.getName());   //receiver.getName());
+        Message message = new Message(title,content, mailmanID,mailmanName);   //receiver.getName());
         receiversList.get(receiverPosition).getNotifications().add(message);
         //delivery.setStatus("Delivered");
     }
@@ -137,6 +136,15 @@ public class Controller {
         for (Receiver receiver: receiversList) {
             if (receiver.getLoginStatus().equals("logged_in")){
                 return receiver;
+            }
+        }
+        return null;
+    }
+
+    public static String getLoggedInMailmanID(){
+        for (Mailman mailman: mailmenList) {
+            if (mailman.getLoginStatus().equals("logged_in")){
+                return mailman.getID();
             }
         }
         return null;
