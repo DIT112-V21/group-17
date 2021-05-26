@@ -86,23 +86,23 @@ public class Controller {
         mailman.getNotifications().add(message);
     }
 
-    public static void available(Mailman mailman, Receiver receiver) {
+    /*public static void available(Mailman mailman, Receiver receiver) {
         //(Mailman mailman, Receiver receiver, Delivery delivery)
         String title="Available";
         String content = receiver.getName()+"is not available to pick up the delivery";
         //delivery.setStatus("Picked-up");
         Message message = new Message(title,content, receiver.getID(),receiver.getName(),mailman.getName());
         mailman.getNotifications().add(message);
-    }
+    }*/
 
-    public static void notAvailable(Mailman mailman, Receiver receiver) {
+   /* public static void notAvailable(Mailman mailman, Receiver receiver) {
         //(Mailman mailman, Receiver receiver, Delivery delivery)
         String title="Not available";
         String content = receiver.getName()+"is available to pick up the delivery";
         //delivery.setStatus("Picked-up");
         Message message = new Message(title,content, receiver.getID(),receiver.getName(),mailman.getName());
         mailman.getNotifications().add(message);
-    }
+    }*/
 
     public static void mailmanLogOut(){
         for (Mailman mailman:mailmenList){
