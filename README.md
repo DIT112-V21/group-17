@@ -1,5 +1,7 @@
 # SMART DeliRover
 
+![Smart DeliRover](https://user-images.githubusercontent.com/81171274/119584686-62499e00-bdc9-11eb-97bf-dc4896014fdd.jpg)
+
 
 # What are we going to make?
 
