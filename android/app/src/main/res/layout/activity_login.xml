@@ -53,6 +53,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:hint=" Username"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="5dp"
         android:inputType="text" />
 
     <TextView
@@ -71,6 +74,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:hint=" Password"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="5dp"
         android:inputType="textPassword" />
 
     <TextView
