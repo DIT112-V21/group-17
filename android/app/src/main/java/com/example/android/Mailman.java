@@ -6,18 +6,18 @@ import java.util.UUID;
 public class Mailman {
 
     private String ID;
-    private String userName;
+    private String name;
     private String passWord;
     private String loginStatus;
 
     private ArrayList<Message> notifications;
 
-    public Mailman(String userName,String passWord){
+    public Mailman(String name,String passWord){
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
 
-        this.userName=userName;
+        this.name=name;
         this.passWord=passWord;
         this.notifications= new ArrayList<Message>();
         this.loginStatus="logged_Out";
@@ -29,12 +29,12 @@ public class Mailman {
 
     public String getName() {
 
-        return userName;
+        return name;
     }
 
     public void setName(String userName) {
 
-        this.userName = userName;
+        this.name = name;
     }
 
     public String getPassWord() {
@@ -65,7 +65,7 @@ public class Mailman {
     public String toString() {
         return "Mailman{" +
                 "ID='" + ID + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + name + '\'' +
                 ", passWord='" + passWord + '\'' +
                 '}';
     }

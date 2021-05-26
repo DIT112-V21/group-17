@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Receiver {
 
     private String ID;
-    private String userName;
+    private String name;
     private String passWord;
     private String address;
     private String loginStatus;
@@ -15,12 +15,12 @@ public class Receiver {
     private ArrayList<Message> notifications;
 
 
-    public Receiver(String userName, String passWord, String address){
+    public Receiver(String name, String passWord, String address){
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
 
-        this.userName=userName;
+        this.name=name;
         this.passWord=passWord;
         this.address=address;
         this.notifications= new ArrayList<Message>();
@@ -32,11 +32,11 @@ public class Receiver {
     }
 
     public String getName() {
-        return userName;
+        return name;
     }
 
     public void setName(String userName) {
-        this.userName = userName;
+        this.name = userName;
     }
 
     public String getPassWord() {
@@ -69,7 +69,7 @@ public class Receiver {
     public String toString() {
         return "Receiver{" +
                 "ID='" + ID + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + name + '\'' +
                 ", passWord='" + passWord + '\'' +
                 '}';
     }
