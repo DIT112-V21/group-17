@@ -67,7 +67,7 @@ public class Controller {
         Message message = new Message(title,content, receiver.getID(),receiver.getName());//mailman.getName());
         mailman.getNotifications().add(message);
     }
-
+// problem fixed
     public static void available(Mailman mailman, Receiver receiver) {
         //(Mailman mailman, Receiver receiver, Delivery delivery)
         String title="Available";
