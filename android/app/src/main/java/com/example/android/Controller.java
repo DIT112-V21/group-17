@@ -37,12 +37,15 @@ public class Controller {
 
 
     //add expect message to the mailman's list of messages and creates a delivery
-    public static void sendExpectDelivery(Mailman mailman, Receiver receiver) {
+    public static void sendExpectDelivery(String mailmanID, Receiver receiver) {
         //createDelivery(mailman, receiver);
         //expect: sent; pickup: sent
         String title="Expect";
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
-        Message message = new Message(title,content, mailman.getID(),mailman.getName());//receiver.getName());
+        int mailmanPosition=fetchMailmanByIDInAList(mailmanID);
+        String mailmanName=mailmenList.get(mailmanPosition).getName();
+
+        Message message = new Message(title,content, mailmanID,mailmanName);//receiver.getName());
         receiver.getNotifications().add(message);
     }
 
