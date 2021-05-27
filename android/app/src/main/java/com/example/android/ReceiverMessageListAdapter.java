@@ -20,15 +20,7 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
 
     private Context mContext;
     private int mResource;
-    //private Mailman mailman=Controller.mailmenList.get(0);
 
-
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public ReceiverMessageListAdapter(Context context, int resource, ArrayList<Message> objects) {
         super(context, resource, objects);
         mContext = context;

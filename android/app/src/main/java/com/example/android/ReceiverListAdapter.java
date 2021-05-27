@@ -15,7 +15,7 @@ public class ReceiverListAdapter extends ArrayAdapter<Receiver> {
 
     private Context mContext;
     private int mResource;
-    
+
     public ReceiverListAdapter(Context context, int resource, ArrayList<Receiver> objects) {
         super(context, resource, objects);
         mContext = context;
