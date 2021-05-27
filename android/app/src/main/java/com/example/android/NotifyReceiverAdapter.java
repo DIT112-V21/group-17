@@ -18,15 +18,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
 
     private Context mContext;
     private int mResource;
-    //private Mailman mailman=Controller.mailmenList.get(0);
-
-
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
+ 
     public NotifyReceiverAdapter(Context context, int resource, ArrayList<Receiver> objects) {
         super(context, resource, objects);
         mContext = context;
