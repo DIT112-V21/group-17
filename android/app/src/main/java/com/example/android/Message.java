@@ -10,6 +10,8 @@ public class Message {
     private String senderName;
     private String messageStatus;
 
+
+
     public Message(String title, String content, String senderID, String senderName) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
@@ -66,15 +68,12 @@ public class Message {
         this.messageStatus = messageStatus;
     }
 
-
     @Override
     public String toString() {
-        return "Message{" +
-                "ID='" + ID + '\'' +
-                ", content='" + title + '\''+
-                ", content='" + content + '\'' +
-                ", sender='" + senderName + '\'' +
-           //     ", receiver='" + receiverName + '\'' +
-                '}';
+        return "\nMessage from: " + senderName +
+                "\n\n" + content;
     }
+
+
+
 }
