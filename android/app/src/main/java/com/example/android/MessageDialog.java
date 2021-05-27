@@ -11,8 +11,10 @@
 
 
             private String message;
+            private String messageTitle;
 
-            public MessageDialog(String messages){
+            public MessageDialog(String messageTitle,String message){
+                this.messageTitle=messageTitle;
                 this.message=message;
             }
 
@@ -21,13 +23,12 @@
             }
 
 
-
             @Override
             public Dialog onCreateDialog(Bundle savedInstanceState) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Message details")
+                builder.setTitle(messageTitle)
 
-                        .setMessage("hi")
+                        .setMessage(message)
                         .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

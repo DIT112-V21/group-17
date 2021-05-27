@@ -80,6 +80,7 @@ public class Controller {
             }
         }
     }
+
     public static void receiverLogOut(){
         for (Receiver receiver:receiversList){
             if (receiver.getLoginStatus().equals("logged_in")){

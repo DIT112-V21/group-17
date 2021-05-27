@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,8 +27,6 @@ public class ReceiverMessageListActivity extends AppCompatActivity {
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            TextView tvMessage = (TextView) findViewById(R.id.tv_receiver_message);
-
 
             @Override
             public void onItemClick(AdapterView<?> parent, View tvMessage, int position, long id) {
@@ -40,7 +37,8 @@ public class ReceiverMessageListActivity extends AppCompatActivity {
     }
     public void openDialog(int position){
         String messageContent=Controller.receiverMessageList().get(position).toString();
-        MessageDialog messageD = new MessageDialog(messageContent);
+        String messageTitle=Controller.receiverMessageList().get(position).getTitle();
+        MessageDialog messageD = new MessageDialog(messageTitle,messageContent);
         messageD.show(getSupportFragmentManager(), "Message dialog");
     }
 
