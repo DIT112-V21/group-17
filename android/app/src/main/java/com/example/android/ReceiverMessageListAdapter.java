@@ -30,6 +30,7 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
 
     ArrayList<Message> messages=Controller.receiverMessageList();
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //get the persons information
@@ -50,6 +51,11 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
 
 
         tvMessage.setText(message.getTitle());
+
+
+
+
+
 
         if(message.getTitle().equals("Confirm pick-up")){
 
@@ -123,6 +129,10 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
 
 
 
+
+
+
        return convertView;
     }
+
 }
