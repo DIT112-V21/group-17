@@ -16,13 +16,6 @@ public class ReceiverListAdapter extends ArrayAdapter<Receiver> {
     private Context mContext;
     private int mResource;
 
-
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public ReceiverListAdapter(Context context, int resource, ArrayList<Receiver> objects) {
         super(context, resource, objects);
         mContext = context;

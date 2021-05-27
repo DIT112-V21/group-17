@@ -19,16 +19,8 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
 
     private Context mContext;
     private int mResource;
-   // private Mailman mailman=Controller.mailmenList.get(0);
 
 
-
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public MailmanMessageListAdapter(Context context, int resource, ArrayList<Message> objects) {
         super(context, resource, objects);
         mContext = context;
@@ -53,8 +45,6 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
         TextView tvMessage = (TextView) convertView.findViewById(R.id.tv_mailman_message);
         Button pickup = (Button) convertView.findViewById(R.id.pickup_button);
         String message_title=message.getSenderName()+" "+message.getTitle();
-        //Receiver receiver=Controller.searchReceiverById(message.getSenderID());
-       // System.out.println("\nhereeeeeeeeeeeeeeeeeeee"+receiver);
 
         tvMessage.setText(message_title);
 
@@ -67,12 +57,6 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
                 pickup.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //int position = MailmanMessageListAdapter.getPosition();
-                        //String receiverID = message.getSenderID();
-
-                        //Message message = messages.get(position);
-                        //Receiver receiver=Controller.searchReceiverById(message.getSenderID());
-                        //System.out.println("\nhereeeeeeeeeeeeeeeeeeee"+receiver);
                         final String pickup_sent = "pick-up delivery message sent to " + name;
                         Controller.sendPickupMessage(mailmanID, senderID);
 
@@ -81,8 +65,6 @@ public class MailmanMessageListAdapter extends ArrayAdapter<Message> {
 
                         Log.w(TAG, pickup_sent);
                         Toast.makeText(mContext.getApplicationContext(), pickup_sent, Toast.LENGTH_SHORT).show();
-
-
 
                     }
                 });
