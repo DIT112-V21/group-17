@@ -1,10 +1,7 @@
----
-name: Custom issue template
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
+## Description
+Here you describe what should be done and how
 
----
+- Add a step
+- Another step
 
 
