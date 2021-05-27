@@ -18,7 +18,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
 
     private Context mContext;
     private int mResource;
- 
+
     public NotifyReceiverAdapter(Context context, int resource, ArrayList<Receiver> objects) {
         super(context, resource, objects);
         mContext = context;
