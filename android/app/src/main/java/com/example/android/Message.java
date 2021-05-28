@@ -8,8 +8,9 @@ public class Message {
     private String content;
     private String senderID;
     private String senderName;
-    //private String receiverName;
     private String messageStatus;
+
+
 
     public Message(String title, String content, String senderID, String senderName) {
         UUID uuid = UUID.randomUUID();
@@ -20,8 +21,6 @@ public class Message {
         this.content = content;
         this.senderID=senderID;
         this.senderName = senderName;
-       // this.receiverName = receiverName;
-
         this.messageStatus="";
     }
 
@@ -40,13 +39,6 @@ public class Message {
     public void setSenderName(String senderName) {
         this.senderName = senderName;
     }
-
-    //public String getReceiverName() {return receiverName;}
-
-   /* public void setReceiverName(String receiverName) {
-        this.receiverName = receiverName;
-    }*/
-
 
     public void setContent(String content) {
         this.content = content;
@@ -76,15 +68,12 @@ public class Message {
         this.messageStatus = messageStatus;
     }
 
-
     @Override
     public String toString() {
-        return "Message{" +
-                "ID='" + ID + '\'' +
-                ", content='" + title + '\''+
-                ", content='" + content + '\'' +
-                ", sender='" + senderName + '\'' +
-           //     ", receiver='" + receiverName + '\'' +
-                '}';
+        return "\nMessage from: " + senderName +
+                "\n\n" + content;
     }
+
+
+
 }

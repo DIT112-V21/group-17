@@ -19,15 +19,6 @@ public class Controller {
         Mailman mailman = new Mailman(name, password);
         mailmenList.add(mailman);
     }
-    /* // test if the mailman receives messages
-    public static void addMailmanMessage(String name, String password) {
-        Mailman mailman = new Mailman(name, password);
-        mailmenList.add(mailman);
-        Message message=new Message("Hi","Leila",mailman.getID(),mailman.getName());
-        mailman.getNotifications().add(message);
-    }
-    */
-
 
     //add a new receiver
     public static void addReceiver(String name, String password, String address) {
@@ -37,12 +28,15 @@ public class Controller {
 
 
     //add expect message to the mailman's list of messages and creates a delivery
-    public static void sendExpectDelivery(Mailman mailman, Receiver receiver) {
+    public static void sendExpectDelivery(String mailmanID, Receiver receiver) {
         //createDelivery(mailman, receiver);
         //expect: sent; pickup: sent
         String title="Expect";
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
-        Message message = new Message(title,content, mailman.getID(),mailman.getName());//receiver.getName());
+        int mailmanPosition=fetchMailmanByIDInAList(mailmanID);
+        String mailmanName=mailmenList.get(mailmanPosition).getName();
+
+        Message message = new Message(title,content, mailmanID,mailmanName);
         receiver.getNotifications().add(message);
     }
 
@@ -52,36 +46,29 @@ public class Controller {
         int receiverPosition=fetchReceiverByIDInAList(receiverID);
         int mailmanPosition=fetchMailmanByIDInAList(mailmanID);
         String mailmanName=mailmenList.get(mailmanPosition).getName();
-
-        Message message = new Message(title,content, mailmanID,mailmanName);   //receiver.getName());
+        Message message = new Message(title,content, mailmanID,mailmanName);
         receiversList.get(receiverPosition).getNotifications().add(message);
-        //delivery.setStatus("Delivered");
     }
 
     public static void confirmPickupMessage(Mailman mailman, Receiver receiver) {
-        //(Mailman mailman, Receiver receiver, Delivery delivery)
         String title="Confirmed pick-up";
         String content = "Pickup Confirmed by "+receiver.getName();
         //delivery.setStatus("Picked-up");
-        Message message = new Message(title,content, receiver.getID(),receiver.getName());//mailman.getName());
+        Message message = new Message(title,content, receiver.getID(),receiver.getName());
         mailman.getNotifications().add(message);
     }
-// problem fixed
+
     public static void available(Mailman mailman, Receiver receiver) {
-        //(Mailman mailman, Receiver receiver, Delivery delivery)
         String title="Available";
         String content = receiver.getName()+"is not available to pick up the delivery";
-        //delivery.setStatus("Picked-up");
-        Message message = new Message(title,content, receiver.getID(),receiver.getName());//mailman.getName());
+        Message message = new Message(title,content, receiver.getID(),receiver.getName());
         mailman.getNotifications().add(message);
     }
 
     public static void notAvailable(Mailman mailman, Receiver receiver) {
-        //(Mailman mailman, Receiver receiver, Delivery delivery)
         String title="Not available";
         String content = receiver.getName()+"is available to pick up the delivery";
-        //delivery.setStatus("Picked-up");
-        Message message = new Message(title,content, receiver.getID(),receiver.getName());//mailman.getName());
+        Message message = new Message(title,content, receiver.getID(),receiver.getName());
         mailman.getNotifications().add(message);
     }
 
@@ -93,6 +80,7 @@ public class Controller {
             }
         }
     }
+
     public static void receiverLogOut(){
         for (Receiver receiver:receiversList){
             if (receiver.getLoginStatus().equals("logged_in")){

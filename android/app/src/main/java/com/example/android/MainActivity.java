@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button manualControl = findViewById(R.id.login_button);
 
-        //Create the Person objects
+        //Create the users objects
         Controller.addReceiver("Leila","123"," room 1");
         Controller.addReceiver("Sven","123"," room 2");
         Controller.addReceiver("Maab","123"," room 3");

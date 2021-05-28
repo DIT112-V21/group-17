@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/tv_receiver_message"
-        android:layout_width="600dp"
+        android:layout_width="76dp"
         android:layout_height="60dp"
         android:layout_weight="66.6"
         android:gravity="center"
@@ -17,7 +17,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_weight="33.3"
         android:orientation="horizontal">
@@ -45,13 +45,13 @@
             android:layout_height="60dp"
             android:layout_weight="66.6"
             android:backgroundTint="#4CAF50"
+            android:enabled="false"
             android:fontFamily="casual"
             android:gravity="center"
             android:text="available"
             android:textAlignment="center"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:enabled="false"
             android:visibility="gone"
 
 
@@ -63,15 +63,15 @@
             android:layout_height="match_parent"
             android:layout_weight="66.6"
             android:backgroundTint="#F44336"
+            android:enabled="false"
             android:fontFamily="casual"
             android:gravity="center"
             android:text="Not available"
             android:textAlignment="center"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:visibility="gone"
 
-            android:enabled="false"
+            android:visibility="gone"
 
             tools:ignore="ButtonStyle" />
 

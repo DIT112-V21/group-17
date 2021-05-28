@@ -18,15 +18,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
 
     private Context mContext;
     private int mResource;
-    private Mailman mailman=Controller.mailmenList.get(0);
 
-
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public NotifyReceiverAdapter(Context context, int resource, ArrayList<Receiver> objects) {
         super(context, resource, objects);
         mContext = context;
@@ -38,6 +30,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
         //get the persons information
         String name = getItem(position).getName();
         Receiver receiver=getItem(position);
+        String mailmanID=Controller.getLoggedInMailmanID();
 
 
         LayoutInflater inflater=LayoutInflater.from(mContext);
@@ -55,7 +48,7 @@ public class NotifyReceiverAdapter extends ArrayAdapter<Receiver> {
                 Log.w(TAG,expect_sent );
                 Toast.makeText(mContext.getApplicationContext(), expect_sent, Toast.LENGTH_SHORT).show();
 
-                Controller.sendExpectDelivery(mailman,receiver);
+                Controller.sendExpectDelivery(mailmanID,receiver);
 
             }
         });
