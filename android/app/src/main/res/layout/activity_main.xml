@@ -20,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="DelivRover"
+        android:text="DeliRover"
         android:textColor="#FFFEFE"
         android:textSize="40sp"
         android:textStyle="bold" />
