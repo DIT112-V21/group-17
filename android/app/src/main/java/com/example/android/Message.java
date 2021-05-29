@@ -36,10 +36,6 @@ public class Message {
         return senderName;
     }
 
-    public void setSenderName(String senderName) {
-        this.senderName = senderName;
-    }
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -48,17 +44,9 @@ public class Message {
         return title;
     }
 
-
-
     public String getSenderID() {
         return senderID;
     }
-
-    public void setSenderID(String senderID) {
-        this.senderID = senderID;
-    }
-
-
 
     public String getMessageStatus() {
         return messageStatus;

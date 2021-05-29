@@ -29,9 +29,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        /*username = usernameInput.getText().toString();
-        password = passwordInput.getText().toString();
-        */
 
         switch (v.getId()){
             case R.id.mailman_button:
@@ -80,8 +77,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         final String noBack = "Exiting Smart DeliRover";
         Log.w(TAG, noBack);
         Toast.makeText(getApplicationContext(), noBack, Toast.LENGTH_SHORT).show();
-       // finish();
-        //System.exit(0);
         return;
     }
 }

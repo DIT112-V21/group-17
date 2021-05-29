@@ -34,7 +34,7 @@ public class Mailman {
 
     public void setName(String userName) {
 
-        this.name = name;
+        this.name = userName;
     }
 
     public String getPassWord() {
