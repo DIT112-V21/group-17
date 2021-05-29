@@ -53,10 +53,6 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
         tvMessage.setText(message.getTitle());
 
 
-
-
-
-
         if(message.getTitle().equals("Confirm pick-up")){
 
             confirm.setVisibility(Button.VISIBLE);
@@ -125,12 +121,6 @@ public class ReceiverMessageListAdapter extends ArrayAdapter<Message> {
                 });
             }
         }
-
-
-
-
-
-
 
        return convertView;
     }
