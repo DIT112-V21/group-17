@@ -1,4 +1,4 @@
-    package com.example.android;
+    package smart.delirover.app;
     import android.app.Dialog;
     import android.content.DialogInterface;
     import android.os.Bundle;

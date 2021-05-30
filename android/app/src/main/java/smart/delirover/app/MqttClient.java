@@ -1,4 +1,4 @@
-package com.example.android;
+package smart.delirover.app;
 
 import android.content.Context;
 
