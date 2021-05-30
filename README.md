@@ -27,6 +27,10 @@ The App itself is an android mobile app, developed using Android Studio. The cod
 We used the Arduino IDE to programme the car using c++ laguage.
 We used GitHub be able to contribut in the development of the project as a group and to trace our contributions. Furthermore, to document the project. Especially that team members just meet vertually. Yep! we don't even know eachother's faces 🙄 (The bright side! we codedd wearing Pajamas! 😎)
 
+
+## 📺 Demo of the project:
+
+> * [Watch me 📺](https://www.youtube.com/watch?v=P7D3GLjJ5lI)(_a youtube video link!_)
 ***
 
 ## 🧰 Resources Used
