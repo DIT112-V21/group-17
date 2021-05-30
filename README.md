@@ -7,14 +7,15 @@
 ## 💡 What is Smart DeliRover
 
 Smart DeliRover App is an android app to monitor 'friendly' electric Smart car that can go to deliver mails and interact with the receiver about the delivery via messages. The car is functional on the hallways of a floor of a building. With this car you wont need to go pick up mail yourself the car will take care of that for you 😎. When the car  reaches your door  you will get a 📧 notification to pick up your mail. We implemented two versions of the app: one for the mailman to monitor the car, check receivers info and send messages,and the other one for the receiver to br notified about his/her delivery.
-***The main functionalities we included in our project are:***
+
+***The main functionalities included in our project are:***
 > * Control the car manually through the app
 > * View the list containing information about the receivers
 > * Notify the receivers to expect a delivery
 > * Notify the receivers to pick up their mail
 > * Checking messages
 > * Notify the mailman of the availability of receivers to pickup the mail or not
-> * obstacles avoidance 
+> * Obstacles avoidance 
 
 ## 🤔 Why did we make it
 
