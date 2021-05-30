@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.android">
+    package="com.delirover.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -23,21 +23,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".ReceiverMessageListActivity" />
-        <activity android:name=".MailmanMessageListActivity" />
+        <activity android:name="smart.delirover.app.ReceiverMessageListActivity" />
+        <activity android:name="smart.delirover.app.MailmanMessageListActivity" />
 
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/actions" />
 
-        <activity android:name=".BrowseErrorActivity" />
-        <activity android:name=".MailmanHomeActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ReceiverHomeActivity" />
-        <activity android:name=".ManualActivity" />
-        <activity android:name=".ReceiverListActivity" />
-        <activity android:name=".NotifyReceiverActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="smart.delirover.app.MailmanHomeActivity" />
+        <activity android:name="smart.delirover.app.LoginActivity" />
+        <activity android:name="smart.delirover.app.ReceiverHomeActivity" />
+        <activity android:name="smart.delirover.app.ManualActivity" />
+        <activity android:name="smart.delirover.app.ReceiverListActivity" />
+        <activity android:name="smart.delirover.app.NotifyReceiverActivity" />
+        <activity android:name="smart.delirover.app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

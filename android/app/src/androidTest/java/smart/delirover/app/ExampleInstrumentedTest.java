@@ -1,4 +1,4 @@
-package com.example.android;
+package smart.delirover.app;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.android", appContext.getPackageName());
+        assertEquals("smart.delirover.app", appContext.getPackageName());
     }
 }

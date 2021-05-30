@@ -1,4 +1,4 @@
-package com.example.android;
+package smart.delirover.app;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.delirover.app.R;
 
 import java.util.ArrayList;
 

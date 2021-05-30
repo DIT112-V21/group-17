@@ -1,5 +1,6 @@
-package com.example.android;
+package smart.delirover.app;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Message {
@@ -9,10 +10,10 @@ public class Message {
     private String senderID;
     private String senderName;
     private String messageStatus;
+    private LocalDateTime time;
 
 
-
-    public Message(String title, String content, String senderID, String senderName) {
+    public Message(String title, String content, String senderID, String senderName,LocalDateTime time) {
         UUID uuid = UUID.randomUUID();
         this.ID = uuid.toString();
         this.ID = ID.substring(0, Math.min(ID.length(), 3));
@@ -22,6 +23,7 @@ public class Message {
         this.senderID=senderID;
         this.senderName = senderName;
         this.messageStatus="";
+        this.time=time;
     }
 
     public String getID() {
@@ -58,7 +60,8 @@ public class Message {
 
     @Override
     public String toString() {
-        return "\nMessage from: " + senderName +
+        return "Received: " +time+
+                "\nMessage from: " + senderName +
                 "\n\n" + content;
     }
 

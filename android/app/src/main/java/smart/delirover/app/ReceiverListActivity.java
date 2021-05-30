@@ -1,10 +1,12 @@
-package com.example.android;
+package smart.delirover.app;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.delirover.app.R;
 
 public class ReceiverListActivity extends AppCompatActivity {
 

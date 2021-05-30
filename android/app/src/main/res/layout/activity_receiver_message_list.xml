@@ -6,7 +6,7 @@
     android:id="@+id/activity_receiver_message_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.ReceiverMessageListActivity">
+    tools:context="smart.delirover.app.ReceiverMessageListActivity">
 
 
     <ListView

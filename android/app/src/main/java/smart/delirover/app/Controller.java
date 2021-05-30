@@ -1,5 +1,6 @@
-package com.example.android;
+package smart.delirover.app;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Controller {
@@ -28,46 +29,50 @@ public class Controller {
     //Send expect a delivery to the receiver: adds expect message to the receiver's list of messages
     public static void sendExpectDelivery(String mailmanID, Receiver receiver) {
         String title="Expect";
+        LocalDateTime date= LocalDateTime.now();
         String content = "You have a mail ready to be delivered to you, please wait for it it's on it's way to you! Vroom vroom !";
         int mailmanPosition=fetchMailmanByIDInAList(mailmanID);
         String mailmanName=mailmenList.get(mailmanPosition).getName();
-        Message message = new Message(title,content, mailmanID,mailmanName);
+        Message message = new Message(title,content, mailmanID,mailmanName,date);
         receiver.getNotifications().add(message);
     }
 
     //Send pickup delivery to the receiver: adds pickup message to the receiver's list of messages
     public static void sendPickupMessage(String mailmanID, String receiverID) {
         String title="Confirm pick-up";
+        LocalDateTime date= LocalDateTime.now();
         String content = "Your mail has arrived and waits for you ! please confirm pick-up :) ";
         int receiverPosition=fetchReceiverByIDInAList(receiverID);
         int mailmanPosition=fetchMailmanByIDInAList(mailmanID);
         String mailmanName=mailmenList.get(mailmanPosition).getName();
-        Message message = new Message(title,content, mailmanID,mailmanName);
+        Message message = new Message(title,content, mailmanID,mailmanName,date);
         receiversList.get(receiverPosition).getNotifications().add(message);
     }
 
     //Send a confirmation of pickup of delivery to the mailman: adds confirmation message to the mailman's list of messages
     public static void confirmPickupMessage(Mailman mailman, Receiver receiver) {
         String title="Confirmed pick-up";
+        LocalDateTime date= LocalDateTime.now();
         String content = "Pickup Confirmed by "+receiver.getName();
-        //delivery.setStatus("Picked-up");
-        Message message = new Message(title,content, receiver.getID(),receiver.getName());
+        Message message = new Message(title,content, receiver.getID(),receiver.getName(),date);
         mailman.getNotifications().add(message);
     }
 
     //Send a message to the mailman to inform that the receiver is available: adds expect message to the mailman's list of messages
     public static void available(Mailman mailman, Receiver receiver) {
         String title="Available";
-        String content = receiver.getName()+"is not available to pick up the delivery";
-        Message message = new Message(title,content, receiver.getID(),receiver.getName());
+        LocalDateTime date= LocalDateTime.now();
+        String content = receiver.getName()+" is available to pick up the delivery";
+        Message message = new Message(title,content, receiver.getID(),receiver.getName(),date);
         mailman.getNotifications().add(message);
     }
 
     //Send a message to the mailman to inform that the receiver is not available: adds expect message to the mailman's list of messages
     public static void notAvailable(Mailman mailman, Receiver receiver) {
         String title="Not available";
+        LocalDateTime date= LocalDateTime.now();
         String content = receiver.getName()+"is not available to pick up the delivery";
-        Message message = new Message(title,content, receiver.getID(),receiver.getName());
+        Message message = new Message(title,content, receiver.getID(),receiver.getName(),date);
         mailman.getNotifications().add(message);
     }
 

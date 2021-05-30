@@ -1,4 +1,4 @@
-package com.example.android;
+package smart.delirover.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.delirover.app.R;
 
 
 public class MailmanHomeActivity extends AppCompatActivity implements View.OnClickListener {
