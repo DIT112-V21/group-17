@@ -31,10 +31,15 @@ We used GitHub be able to contribut in the development of the project as a group
 ## 📺 Demo of the project:
 
 > * [Watch me 📺](https://www.youtube.com/watch?v=P7D3GLjJ5lI)(_a youtube video link!_)
+
+## 📑 Relevent documents
+> * [User stories backlog](https://github.com/DIT112-V21/group-17/wiki/User-stories-backlog)
+> * [Use case diagram](https://github.com/DIT112-V21/group-17/wiki/Smart-DeliRover-use-case-Diagram)
+> * [User Manual](https://github.com/DIT112-V21/group-17/wiki/User-Manual)
+
 ***
 
 ## 🧰 Resources Used
-
 
 * SMCE emulator v 1.2
 * Smartcar shield
