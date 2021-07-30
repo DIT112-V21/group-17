@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.delirover.app">
+    package="com.delirover.app"
+    tools:ignore="MissingLeanbackLauncher">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -31,6 +32,7 @@
             android:resource="@xml/actions" />
 
         <activity android:name="smart.delirover.app.MailmanHomeActivity" />
+        <activity android:name="smart.delirover.app.MailmanTraveledDistanceActivity" />
         <activity android:name="smart.delirover.app.LoginActivity" />
         <activity android:name="smart.delirover.app.ReceiverHomeActivity" />
         <activity android:name="smart.delirover.app.ManualActivity" />
