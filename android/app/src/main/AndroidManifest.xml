@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.delirover.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:label="Smart DeliRover"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".PickupNotificationActivity"></activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ReceiverActivity" />
-        <activity android:name=".ManualActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="smart.delirover.app.ReceiverMessageListActivity" />
+        <activity android:name="smart.delirover.app.MailmanMessageListActivity" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/actions" />
+
+        <activity android:name="smart.delirover.app.MailmanHomeActivity" />
+        <activity android:name="smart.delirover.app.LoginActivity" />
+        <activity android:name="smart.delirover.app.ReceiverHomeActivity" />
+        <activity android:name="smart.delirover.app.ManualActivity" />
+        <activity android:name="smart.delirover.app.ReceiverListActivity" />
+        <activity android:name="smart.delirover.app.NotifyReceiverActivity" />
+        <activity android:name="smart.delirover.app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

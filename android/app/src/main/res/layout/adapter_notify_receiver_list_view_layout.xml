@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="100">
+
+
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="808dp"
+        android:layout_height="60dp"
+        android:layout_weight="66.6"
+        android:gravity="center"
+        android:text="@string/textview"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="33.3"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/expect_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="66.6"
+            android:gravity="center"
+            android:text="Expect"
+            android:textAlignment="center"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+</LinearLayout>

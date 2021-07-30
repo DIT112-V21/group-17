@@ -36,11 +36,11 @@
 
     <ImageView
         android:id="@+id/mail_symbol"
-        android:layout_below="@+id/below_name"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/below_name"
         android:layout_centerVertical="true"
+        android:layout_marginTop="-127dp"
         app:srcCompat="@drawable/logo" />
 
     <Button
@@ -55,8 +55,9 @@
         android:text="Manual Controller"
         android:textSize="20sp"
         android:textStyle="bold" />
+
     <Button
-        android:id="@+id/notification_button"
+        android:id="@+id/receiver_list_button"
         android:layout_below="@+id/manual_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,24 +65,37 @@
         android:layout_centerVertical="true"
         android:backgroundTint="#000033"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Send Notification"
+        android:text="View list of receivers"
         android:textSize="20sp"
         android:textStyle="bold" />
     <Button
-        android:id="@+id/confirmation_button"
-        android:layout_below="@+id/notification_button"
+        android:id="@+id/mailman_message_list_button"
+        android:layout_below="@+id/receiver_list_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:backgroundTint="#000033"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Confirmation Notice"
+        android:text="Check messages"
         android:textSize="20sp"
         android:textStyle="bold" />
     <Button
+        android:id="@+id/notify_button"
+        android:layout_below="@+id/mailman_message_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:backgroundTint="#000033"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Notify receivers"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
         android:id="@+id/logout_button"
-        android:layout_below="@+id/confirmation_button"
+        android:layout_below="@+id/notify_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
