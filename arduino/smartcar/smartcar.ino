@@ -27,7 +27,7 @@ const unsigned int MAX_DISTANCE = 400;
 const auto oneSecond = 1000UL;
 const auto maxDistance = 400;
 const auto redFrontPin = 0;
-const int NORMAL_SPEED = 40; // 30% of the motor capacity
+const int NORMAL_SPEED = 10; // 30% of the motor capacity
 
 MQTTClient mqtt;
 #ifndef __SMCE__
@@ -85,20 +85,33 @@ void loop() {
     const auto currentTime = millis();
     #ifdef __SMCE__
         static auto previousFrame = 0UL;
-        if (currentTime - previousFrame >= 65) {
+        if (currentTime - previousFrame >= oneSecond) {
           previousFrame = currentTime;
+		  		  
+		  // Publish Camera data
           Camera.readFrame(frameBuffer.data());
-          mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),
-                       false, 0);
+          mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),false, 0);
+		  const auto totalDistance = String(travelledDistance());
+		  mqtt.publish("/smartcar/odometer", totalDistance);
+		  const auto distance = String(measureDistance());
+		  mqtt.publish("/smartcar/ultrasound/front", distance);
         }
     #endif
+	
+		/* 	
+		const auto currentTime2 = millis();
         static auto previousTransmission = 0UL;
-        if (currentTime - previousTransmission >= oneSecond) {
-          previousTransmission = currentTime;
+        if (currentTime2 - previousTransmission >= oneSecond) {
+          previousTransmission = currentTime2;
           const auto distance = String(measureDistance());
-          mqtt.publish("/smartcar/ultrasound/front", distance);
-        }
-      }
+          // mqtt.publish("/smartcar/ultrasound/front", distance);
+		  // Publish Total distance
+		  const auto totalDistance = String(travelledDistance());
+		  // Serial.println(totalDistance);		  
+		  //mqtt.publish("/smartcar/odometer", "11111");
+		  
+        }*/
+      } 
   
   #ifdef __SMCE__
   // Avoid over-using the CPU if we are running in the emulator
@@ -155,4 +168,8 @@ void rotateOnSpot(int targetDegrees) {
 }
 int measureDistance() {
       return front.getDistance();
+}
+
+int travelledDistance() {
+      return leftOdometer.getDistance();
 }
