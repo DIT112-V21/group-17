@@ -43,7 +43,8 @@ public class MailmanTraveledDistanceActivity extends AppCompatActivity implement
 
     Context context;
 
-
+    
+    // I'm unfamilar with reusing the MqttClient, so I have no choice but to keep the code as it is.
     private MqttClient mMqttClient;
     private boolean isConnected = false;
     private ImageView mCameraView;
