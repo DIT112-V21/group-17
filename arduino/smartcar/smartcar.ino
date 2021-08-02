@@ -85,32 +85,18 @@ void loop() {
     const auto currentTime = millis();
     #ifdef __SMCE__
         static auto previousFrame = 0UL;
-        if (currentTime - previousFrame >= oneSecond) {
+        if (currentTime - previousFrame >= 65) {
           previousFrame = currentTime;
 		  		  
 		  // Publish Camera data
           Camera.readFrame(frameBuffer.data());
           mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),false, 0);
-		  const auto totalDistance = String(travelledDistance());
-		  mqtt.publish("/smartcar/odometer", totalDistance);
-		  const auto distance = String(measureDistance());
-		  mqtt.publish("/smartcar/ultrasound/front", distance);
-        }
-    #endif
-	
-		/* 	
-		const auto currentTime2 = millis();
-        static auto previousTransmission = 0UL;
-        if (currentTime2 - previousTransmission >= oneSecond) {
-          previousTransmission = currentTime2;
+          const auto totalDistance = String(travelledDistance());
+          mqtt.publish("/smartcar/odometer", totalDistance);
           const auto distance = String(measureDistance());
-          // mqtt.publish("/smartcar/ultrasound/front", distance);
-		  // Publish Total distance
-		  const auto totalDistance = String(travelledDistance());
-		  // Serial.println(totalDistance);		  
-		  //mqtt.publish("/smartcar/odometer", "11111");
-		  
-        }*/
+          mqtt.publish("/smartcar/ultrasound/front", distance);
+        }
+    #endif		
       } 
   
   #ifdef __SMCE__
@@ -171,5 +157,5 @@ int measureDistance() {
 }
 
 int travelledDistance() {
-      return leftOdometer.getDistance();
+      return car.getDistance();
 }
