@@ -27,7 +27,7 @@ const unsigned int MAX_DISTANCE = 400;
 const auto oneSecond = 1000UL;
 const auto maxDistance = 400;
 const auto redFrontPin = 0;
-const int NORMAL_SPEED = 40; // 30% of the motor capacity
+const int NORMAL_SPEED = 10; // 30% of the motor capacity
 
 MQTTClient mqtt;
 #ifndef __SMCE__
@@ -87,18 +87,17 @@ void loop() {
         static auto previousFrame = 0UL;
         if (currentTime - previousFrame >= 65) {
           previousFrame = currentTime;
+		  		  
+		  // Publish Camera data
           Camera.readFrame(frameBuffer.data());
-          mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),
-                       false, 0);
-        }
-    #endif
-        static auto previousTransmission = 0UL;
-        if (currentTime - previousTransmission >= oneSecond) {
-          previousTransmission = currentTime;
+          mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),false, 0);
+          const auto totalDistance = String(travelledDistance());
+          mqtt.publish("/smartcar/odometer", totalDistance);
           const auto distance = String(measureDistance());
           mqtt.publish("/smartcar/ultrasound/front", distance);
         }
-      }
+    #endif		
+      } 
   
   #ifdef __SMCE__
   // Avoid over-using the CPU if we are running in the emulator
@@ -155,4 +154,8 @@ void rotateOnSpot(int targetDegrees) {
 }
 int measureDistance() {
       return front.getDistance();
+}
+
+int travelledDistance() {
+      return car.getDistance();
 }

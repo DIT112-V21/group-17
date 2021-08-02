@@ -108,7 +108,7 @@ public class ManualActivity extends AppCompatActivity implements View.OnClickLis
 
                     mMqttClient.subscribe("/smartcar/ultrasound/front", QOS, null);
                     mMqttClient.subscribe("/smartcar/camera", QOS, null);
-
+                    mMqttClient.subscribe("/smartcar/odometer", QOS, null);
                 }
 
                 @Override

@@ -25,7 +25,6 @@ public class MailmanHomeActivity extends AppCompatActivity implements View.OnCli
         Button notify_button = findViewById(R.id.notify_button);//to send notification in a list
         Button logout = findViewById(R.id.logout_button);
         Button receiver_list_button = findViewById(R.id.receiver_list_button);
-        Button traveleddistance_button = findViewById(R.id.traveleddistance_button);
         Button mailman_message_list_button = findViewById(R.id.mailman_message_list_button);
 
 
@@ -34,7 +33,6 @@ public class MailmanHomeActivity extends AppCompatActivity implements View.OnCli
         notify_button.setOnClickListener(this);
         logout.setOnClickListener(this);
         mailman_message_list_button.setOnClickListener(this);
-        traveleddistance_button.setOnClickListener(this);
 
     }
 
@@ -45,10 +43,13 @@ public class MailmanHomeActivity extends AppCompatActivity implements View.OnCli
                 Intent intent = new Intent(this, ManualActivity.class);
                 startActivity(intent);
                 break;
+
+
             case R.id.receiver_list_button:
                 Intent intentz = new Intent(this, ReceiverListActivity.class);
                 startActivity(intentz);
                 break;
+
             case R.id.notify_button:
                 Intent intent2 = new Intent(this, NotifyReceiverActivity.class);
                 startActivity(intent2);
@@ -56,10 +57,6 @@ public class MailmanHomeActivity extends AppCompatActivity implements View.OnCli
             case R.id.mailman_message_list_button:
                 Intent intent3 = new Intent(this, MailmanMessageListActivity.class);
                 startActivity(intent3);
-                break;
-            case R.id.traveleddistance_button:
-                Intent intent4 = new Intent(this, MailmanTraveledDistanceActivity.class);
-                startActivity(intent4);
                 break;
             case R.id.logout_button:
                 Controller.mailmanLogOut();
