@@ -27,7 +27,7 @@ const unsigned int MAX_DISTANCE = 400;
 const auto oneSecond = 1000UL;
 const auto maxDistance = 400;
 const auto redFrontPin = 0;
-const int NORMAL_SPEED = 10; // 30% of the motor capacity
+const int NORMAL_SPEED = 40; // 30% of the motor capacity
 
 MQTTClient mqtt;
 #ifndef __SMCE__
