@@ -94,8 +94,21 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/traveleddistance_button"
         android:layout_below="@+id/notify_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:backgroundTint="#000033"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Traveled Distance"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_below="@+id/traveleddistance_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

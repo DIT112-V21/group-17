@@ -41,69 +41,68 @@ DirectionalOdometer rightOdometer{arduinoRuntime, smartcarlib::pins::v2::rightOd
 SmartCar car(arduinoRuntime, control, gyroscope, leftOdometer, rightOdometer);
 SR04 front(arduinoRuntime, TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
 
-void setup(){
-  
+void setup() {
+
   Serial.begin(9600);
   car.setSpeed(NORMAL_SPEED); // Maintain a speed of 1.5 m/sec
-  
-  #ifdef __SMCE__
+
+#ifdef __SMCE__
   Camera.begin(QVGA, RGB888, 15);
   frameBuffer.resize(Camera.width() * Camera.height() * Camera.bytesPerPixel());
   mqtt.begin("aerostun.dev", 1883, WiFi);
   // mqtt.begin(WiFi); // Will connect to localhost
-  #else
+#else
   mqtt.begin(net);
-  #endif
-  
+#endif
+
   if (mqtt.connect("arduino", "public", "public")) {
     mqtt.subscribe("/smartcar/control/#", 1);
     mqtt.onMessage([](String topic, String message) {
       if (topic == "/smartcar/control/throttle") {
         car.setSpeed(message.toInt());
-        } else if (topic == "/smartcar/control/steering") {
-          car.setAngle(message.toInt());
-          } else {
-            Serial.println(topic + " " + message);
-            }
-      });
-      
-      Serial.println("Mqtt connection established successfully to the broker!");
+      } else if (topic == "/smartcar/control/steering") {
+        car.setAngle(message.toInt());
+      } else {
+        Serial.println(topic + " " + message);
+      }
+    });
+
+    Serial.println("Mqtt connection established successfully to the broker!");
   }
 }
 
 
 void loop() {
-  
+
   // Test MQTT connection to the broker
   if (mqtt.connected()) {
-    
+
     // car movement
     //car.setSpeed(30);
-    //obstacleAvoidance(); 
-    
+    //obstacleAvoidance();
+
     mqtt.loop();
     const auto currentTime = millis();
-    #ifdef __SMCE__
-        static auto previousFrame = 0UL;
-        if (currentTime - previousFrame >= 65) {
-          previousFrame = currentTime;
-          Camera.readFrame(frameBuffer.data());
-          mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(),
-                       false, 0);
-        }
-    #endif
-        static auto previousTransmission = 0UL;
-        if (currentTime - previousTransmission >= oneSecond) {
-          previousTransmission = currentTime;
-          const auto distance = String(measureDistance());
-          mqtt.publish("/smartcar/ultrasound/front", distance);
-        }
-      }
-  
-  #ifdef __SMCE__
+#ifdef __SMCE__
+    static auto previousFrame = 0UL;
+    if (currentTime - previousFrame >= 65) {
+      previousFrame = currentTime;
+
+      // Publish Camera data
+      Camera.readFrame(frameBuffer.data());
+      mqtt.publish("/smartcar/camera", frameBuffer.data(), frameBuffer.size(), false, 0);
+      const auto totalDistance = String(travelledDistance());
+      mqtt.publish("/smartcar/odometer", totalDistance);
+      const auto distance = String(measureDistance());
+      mqtt.publish("/smartcar/ultrasound/front", distance);
+    }
+#endif
+  }
+
+#ifdef __SMCE__
   // Avoid over-using the CPU if we are running in the emulator
   delay(35);
-  #endif
+#endif
 }
 
 
@@ -111,15 +110,15 @@ void loop() {
 void obstacleAvoidance() {
   int distance = front.getDistance();
   int rotationDegree = 90;
-  // Stop after moving 1 meter 
-  if (distance > 0 && distance < 200){
+  // Stop after moving 1 meter
+  if (distance > 0 && distance < 200) {
     Serial.println("Stopping car");
     car.setSpeed(0);
     // Rotate
     rotateOnSpot(rotationDegree);
     car.setSpeed(NORMAL_SPEED);
   }
-  
+
   Serial.print("Distance: ");
   Serial.println(front.getDistance());
 }
@@ -130,29 +129,33 @@ void rotateOnSpot(int targetDegrees) {
   int speed = smartcarlib::utils::getAbsolute(40);
   targetDegrees %= 360;
   if (!targetDegrees)
-  return; 
-  
-  if (targetDegrees > 0) { 
-    car.overrideMotorSpeed(40, -40); 
-    } else {
-      car.overrideMotorSpeed(-40,40);
+    return;
+
+  if (targetDegrees > 0) {
+    car.overrideMotorSpeed(40, -40);
+  } else {
+    car.overrideMotorSpeed(-40, 40);
+  }
+
+  const auto initialHeading = car.getHeading();
+  int degreesTurnedSoFar = 0;
+
+  while (abs(degreesTurnedSoFar) < abs(targetDegrees)) {
+    car.update();
+    auto currentHeading = car.getHeading();
+    if ((targetDegrees < 0) && (currentHeading > initialHeading)) {
+      currentHeading -= 360;
+    } else if ((targetDegrees > 0) && (currentHeading < initialHeading)) {
+      currentHeading += 360;
     }
-    
-    const auto initialHeading = car.getHeading();
-    int degreesTurnedSoFar = 0;
-    
-    while (abs(degreesTurnedSoFar) < abs(targetDegrees)) {
-      car.update();
-      auto currentHeading = car.getHeading();
-      if ((targetDegrees < 0) && (currentHeading > initialHeading)) {
-        currentHeading -= 360; 
-        } else if ((targetDegrees > 0) && (currentHeading < initialHeading)) {
-          currentHeading += 360;
-        }
-        degreesTurnedSoFar = initialHeading - currentHeading;
-   }
-   car.setSpeed(0); /* we have reached the target, so stop the car */
+    degreesTurnedSoFar = initialHeading - currentHeading;
+  }
+  car.setSpeed(0); /* we have reached the target, so stop the car */
 }
 int measureDistance() {
-      return front.getDistance();
+  return front.getDistance();
+}
+
+int travelledDistance() {
+  return car.getDistance();
 }
