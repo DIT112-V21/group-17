@@ -1,0 +1,14 @@
+name: Android Unit Test
+
+on: [push]
+
+jobs:
+  unit_test:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: ./android
+    steps:
+      - uses: actions/checkout@v2
+      - name: unit test
+        run: ./gradlew test
